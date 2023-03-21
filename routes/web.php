@@ -2,6 +2,7 @@
 
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-
-    dd(env('DB_HOST'));
-
-    return view('welcome');
-});
+Route::get('/blog', [PostsController::class, 'index']);
