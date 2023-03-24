@@ -3,6 +3,7 @@
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,7 @@ use App\Http\Controllers\PostsController;
 // Route::get('/blog', [PostsController::class, 'index']);
 
 Route::resource('blog', PostsController::class);
+
+// Route for invoke methode
+
+Route::get('/', HomeController::class);
