@@ -6,20 +6,48 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\HomeController;
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
+    GET - request a resource
+    POST - create a new resource
+    PUT - update a resource
+    PATCH - modify a resource
+    DELETE - delete a resource
+    OPTIONS - asks server which verbes are allowed
+
 */
 
-// Route::get('/blog', [PostsController::class, 'index']);
+//GET
+Route::get('/blog', [PostsController::class, 'index']);
+Route::get('/blog/1', [PostsController::class, 'show']);
 
-Route::resource('blog', PostsController::class);
+
+//POST
+Route::get('/blog/create', [PostsController::class, 'create']);
+Route::post('/blog', [PostsController::class, 'store']);
+
+//PUT OR PATCH
+Route::get('/blog/edit/1', [PostsController::class, 'edit']);
+Route::patch('/blog/1', [PostsController::class, 'update']);
+
+//DELETE
+Route::delete('/blog/1', [PostsController::class, 'destroy']);
+
+// Route::resource('blog', PostsController::class);
 
 // Route for invoke methode
-
 Route::get('/', HomeController::class);
+
+
+
+// //Multiple HTTP verbes
+// Route::match(['GET', 'POST'], '/blog', [PostsController::class, 'index']);
+// Route::any('/blog', [PostsController::class, 'index']);
+
+
+// //Return view
+
+// Route::view('/blog', 'blog.index', ['name' => 'Code with me']);
+
+
+
+
+
