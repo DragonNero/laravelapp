@@ -17,7 +17,17 @@ use App\Http\Controllers\HomeController;
 
 //GET
 Route::get('/blog', [PostsController::class, 'index']);
-Route::get('/blog/{id}', [PostsController::class, 'show']);
+// Route::get('/blog/{id}', [PostsController::class, 'show']) ->whereNumber('id');
+// Route::get('/blog/{name}', [PostsController::class, 'show'])
+//     ->where('name', '[A-Za-z]+');
+
+
+Route::get('/blog/{id}/{name}', [PostsController::class, 'show'])
+    ->whereNumber('id')
+    ->whereAlpha('name');
+
+
+
 
 
 //POST
@@ -46,8 +56,3 @@ Route::get('/', HomeController::class);
 // //Return view
 
 // Route::view('/blog', 'blog.index', ['name' => 'Code with me']);
-
-
-
-
-
