@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FallbackController;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
@@ -26,7 +27,7 @@ use App\Http\Controllers\HomeController;
 
 //DELETE
 
-Route::prefix('/blog')->group(function() {
+Route::prefix('/blog')->group(function () {
     Route::get('/', [PostsController::class, 'index'])->name('blog.index');
     Route::post('/{id}', [PostsController::class, 'show'])->name('blog.show');
     Route::get('/create', [PostsController::class, 'create'])->name('blog.create');
@@ -53,3 +54,5 @@ Route::get('/', HomeController::class);
 // //Return view
 
 // Route::view('/blog', 'blog.index', ['name' => 'Code with me']);
+//Fallback route
+Route::fallback(FallbackController::class);
