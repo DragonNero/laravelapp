@@ -12,10 +12,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::update('UPDATE posts SET body = ? WHERE id = ?', [
-            'Body 2', 203
-        ]);
-
+        $posts = DB::table('posts')
+            ->whereIn('minutes_to_read', [2,6,8])
+            ->get();
         dd($posts);
         return view('blog.index');
     }
