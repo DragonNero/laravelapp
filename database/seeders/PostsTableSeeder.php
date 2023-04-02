@@ -20,7 +20,7 @@ class PostsTableSeeder extends Seeder
                 'body' => 'Body of Post One',
                 'image_path' => 'Empty',
                 'is_published' => false,
-                'minutes_to_read' => 2,
+                'minutes_to_read' => 2
             ],
             [
                 'title' => 'Post Two',
