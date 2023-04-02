@@ -12,7 +12,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::select('SELECT * FROM posts WHERE id = :id', ['id' => 1]);
+        $posts = DB::update('UPDATE posts SET body = ? WHERE id = ?', [
+            'Body 2', 203
+        ]);
 
         dd($posts);
         return view('blog.index');
