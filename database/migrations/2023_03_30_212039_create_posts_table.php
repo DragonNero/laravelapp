@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->text('excerpt')->nullable();
             $table->text('body');
-            $table->integer('min_to_read')->default(1);
+            $table->integer('minutes_to_read')->default(1);
             $table->string('image_path');
             $table->boolean('is_published');
 
