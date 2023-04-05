@@ -21,7 +21,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('blog.index', [
+        return view('recipe.index', [
             'posts' =>  Post::orderBy('updated_at', 'desc')->paginate(20)
         ]);
     }
@@ -33,7 +33,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        return view('recipe.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class PostsController extends Controller
             'image_path' => $this->storeImage($request),
             'is_published' => $request->is_published === 'on',
         ]);
-        return redirect(route('blog.index'));
+        return redirect(route('recipe.index'));
     }
 
     /**
@@ -65,7 +65,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return view('blog.show', [
+        return view('recipe.show', [
             'post' => Post::findOrFail($id)
         ]);
     }
@@ -78,7 +78,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return view('blog.edit', [
+        return view('recipe.edit', [
             'post' => Post::where('id', $id)->first()
         ]);
     }
@@ -96,7 +96,7 @@ class PostsController extends Controller
         Post::where('id', $id)->update($request->except([
             '_token', '_method'
         ]));
-        return redirect(route('blog.index'));
+        return redirect(route('recipe.index'));
     }
 
     /**
@@ -108,7 +108,7 @@ class PostsController extends Controller
     public function destroy($id)
     {
         Post::destroy($id);
-        return redirect(route('blog.index'))->with('message', 'Post have been deleted');
+        return redirect(route('recipe.index'))->with('message', 'Post have been deleted');
     }
 
     private function storeImage($request)

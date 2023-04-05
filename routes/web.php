@@ -27,14 +27,14 @@ use App\Http\Controllers\HomeController;
 
 //DELETE
 
-Route::prefix('/blog')->group(function () {
-    Route::get('/create', [PostsController::class, 'create'])->name('blog.create');
-    Route::get('/', [PostsController::class, 'index'])->name('blog.index');
-    Route::post('/{id}', [PostsController::class, 'show'])->name('blog.show');
-    Route::post('/', [PostsController::class, 'store'])->name('blog.store');
-    Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
-    Route::patch('/{id}', [PostsController::class, 'update'])->name('blog.update');
-    Route::delete('/{id}', [PostsController::class, 'destroy'])->name('blog.destroy');
+Route::prefix('/recipe')->group(function () {
+    Route::get('/create', [PostsController::class, 'create'])->name('recipe.create');
+    Route::get('/', [PostsController::class, 'index'])->name('recipe.index');
+    Route::post('/{id}', [PostsController::class, 'show'])->name('recipe.show'); // this should be a get. Post means that you send data but when you want to show a receipe, you don,
+    Route::post('/', [PostsController::class, 'store'])->name('recipe.store');
+    Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('recipe.edit');
+    Route::patch('/{id}', [PostsController::class, 'update'])->name('recipe.update');
+    Route::delete('/{id}', [PostsController::class, 'destroy'])->name('recipe.destroy');
 });
 
 

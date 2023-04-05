@@ -33,7 +33,7 @@
     @endif
 </div>
     <form
-        action="{{ route('blog.store') }}"
+        action="{{ route('recipe.store') }}"
         method="POST"
         enctype="multipart/form-data">
         @csrf

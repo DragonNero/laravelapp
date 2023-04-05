@@ -33,7 +33,7 @@
     @endif
 </div>
     <form
-        action="{{ route('blog.update', $post->id) }}"
+        action="{{ route('recipe.update', $post->id) }}"
         method="POST"
         enctype="multipart/form-data">
         @csrf
