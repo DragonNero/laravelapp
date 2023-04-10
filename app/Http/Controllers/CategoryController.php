@@ -6,6 +6,7 @@ use App\Models\Category;
 // use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -14,6 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $categories = DB::select('SELECT * FROM categories');
+        dd($categories);
         return view('category.index');
     }
 
@@ -22,17 +25,23 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
      * Store a newly created resource in storage.
+     * public function store(Request $request)
      */
     public function store(Request $request)
     {
-        //
-    }
+        Category::create([
+            'name' => $request->name,
+            'image_path' => 'temporary',
+            'order' => $request->order,
+        ]);
 
+        return redirect(route('category.index'));
+    }
     /**
      * Display the specified resource.
      */

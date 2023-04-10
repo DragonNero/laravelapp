@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('image_path')->nullable();
             $table->integer('order')->unique();
+
+            $table->timestamps();
         });
     }
 
