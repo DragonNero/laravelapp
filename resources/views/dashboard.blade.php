@@ -11,6 +11,12 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
+                <div class="py-10 sm:py-20">
+                    <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
+                       href="{{ route('category.index') }}">
+                        All Categories
+                    </a>
+                </div>
             </div>
         </div>
     </div>
