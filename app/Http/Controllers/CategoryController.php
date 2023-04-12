@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use id;
 // use GuzzleHttp\Psr7\Response;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -15,9 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = DB::select('SELECT * FROM categories');
-        dd($categories);
-        return view('category.index');
+        return view('category.index', [
+            'categories' =>  Category::orderBy('order', 'asc')->paginate(20)
+        ]);
     }
 
     /**
@@ -45,9 +46,11 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        return view('category.show', [
+            'post' => Category::findOrFail($id)
+        ]);
     }
 
     /**
