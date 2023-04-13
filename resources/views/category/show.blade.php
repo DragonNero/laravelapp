@@ -16,6 +16,7 @@
         rel="stylesheet"
         href="{{ asset('css/app.css') }}"
     />
+    @laravelViewsStyles
 </head>
 <body>
     <div class="w-4/5 mx-auto">
@@ -54,5 +55,6 @@
             </p>
         </div>
     </div>
+    @laravelViewsScripts
     </body>
 </html>

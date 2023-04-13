@@ -3,19 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Models\Category;
+use LaravelViews\Facades\Header;
 use LaravelViews\Views\TableView;
-use App\Category;
+use App\Actions\EditCategoryAction;
+use App\Actions\DeleteCategoryAction;
 use Illuminate\Database\Eloquent\Builder;
-
-/**
- * Sets a initial query with the data to fill the table
- *
- * @return Builder Eloquent query
- */
-public function repository(): Builder
-{
-    return Category::query();
-}
+use LaravelViews\Actions\RedirectAction;
 
 class CategoriesTableView extends TableView
 {
@@ -24,6 +17,10 @@ class CategoriesTableView extends TableView
      */
     protected $model = Category::class;
 
+    protected function repository()
+    {
+        return Category::query();
+    }
     /**
      * Sets the headers of the table as you want to be displayed
      *
@@ -53,6 +50,14 @@ class CategoriesTableView extends TableView
             $model->order,
             $model->created_at,
             $model->updated_at
+        ];
+    }
+    /** For actions by item */
+    protected function actionsByRow()
+    {
+        return [
+            new EditCategoryAction(),
+            new DeleteCategoryAction(),
         ];
     }
 }
