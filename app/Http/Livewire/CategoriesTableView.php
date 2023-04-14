@@ -29,7 +29,7 @@ class CategoriesTableView extends TableView
     public function headers(): array
     {
         return [
-            Header::title('Name')->width('20%'),
+            Header::title('Name')->width('10%')->sortBy('name'),
             Header::title('Image')->width('100px'),
             Header::title('Order')->width('100px'),
             'Created',
@@ -56,6 +56,7 @@ class CategoriesTableView extends TableView
     protected function actionsByRow()
     {
         return [
+            new RedirectAction('category.show', 'See category', 'eye'),
             new EditCategoryAction(),
             new DeleteCategoryAction(),
         ];

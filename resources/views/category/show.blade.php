@@ -9,6 +9,7 @@
         http-equiv="X-UA-Compatible"
         content="ie=edge"
     />
+    @csrf
     <title>
         Laravel App
     </title>

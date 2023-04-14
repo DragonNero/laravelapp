@@ -18,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostsController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified', 'web']], function () {
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::prefix('/categories')->group(function () {
+    Route::group(['prefix' => 'categories', 'middleware' => ['auth', 'verified', 'web']], function () {
         Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
         Route::get('/', [CategoryController::class, 'index'])->name('category.index');
         Route::get('/{id}', [CategoryController::class, 'show'])->name('category.show');

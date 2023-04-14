@@ -9,7 +9,7 @@
         http-equiv="X-UA-Compatible"
         content="ie=edge"
     />
-    <meta name="csrf_token" value="{{ csrf_token() }}"/>
+    @csrf
     <title>
         Laravel App
     </title>
