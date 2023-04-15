@@ -28,8 +28,10 @@ class DeleteCategoryAction extends Action
     public function handle($model, View $view)
     {
         $model->delete = true;
-        $model->save();
-
-        $this->success();
+        if ($model->save()) {
+            $this->success();
+        } else {
+            $this->error();
+        }
     }
 }

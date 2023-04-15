@@ -7,7 +7,6 @@ use LaravelViews\Facades\Header;
 use LaravelViews\Views\TableView;
 use App\Actions\EditCategoryAction;
 use App\Actions\DeleteCategoryAction;
-use Illuminate\Database\Eloquent\Builder;
 use LaravelViews\Actions\RedirectAction;
 
 class CategoriesTableView extends TableView
