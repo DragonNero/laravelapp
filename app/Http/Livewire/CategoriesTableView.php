@@ -56,7 +56,7 @@ class CategoriesTableView extends TableView
     {
         return [
             new RedirectAction('category.show', 'See category', 'eye'),
-            new EditCategoryAction(),
+            new RedirectAction('category.edit', 'Edit category', 'edit-2'),
             new DeleteCategoryAction(),
         ];
     }

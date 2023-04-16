@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryFormRequest;
 use id;
 // use GuzzleHttp\Psr7\Response;
 use App\Models\Category;
@@ -49,24 +50,34 @@ class CategoryController extends Controller
     public function show($id)
     {
         return view('category.show', [
-            'post' => Category::findOrFail($id)
+            'category' => Category::findOrFail($id)
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        return view('category.edit', [
+            'category' => Category::findOrFail($id)
+        ]);
     }
 
-    /**
+     /**
      * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryFormRequest $request, $id)
     {
-        //
+        $request->validated();
+        Category::where('id', $id)->update($request->except([
+            '_token', '_method'
+        ]));
+        return redirect(route('category.index'));
     }
 
     /**

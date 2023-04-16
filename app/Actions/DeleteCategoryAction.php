@@ -2,6 +2,7 @@
 
 namespace App\Actions;
 
+use App\Models\Category;
 use LaravelViews\Actions\Action;
 use LaravelViews\Views\View;
 
@@ -27,8 +28,7 @@ class DeleteCategoryAction extends Action
      */
     public function handle($model, View $view)
     {
-        $model->delete = true;
-        if ($model->save()) {
+        if ($model->delete()) {
             $this->success();
         } else {
             $this->error();
