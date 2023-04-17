@@ -45,6 +45,20 @@
         </div>
 
         <div class="pt-10 pb-10 text-gray-900 text-xl">
+            <p class="text-base text-black pt-10">
+                <td>
+                    @if($post->image_path)
+                    <img src="{{ asset('storage/images'.$post->image_path) }}" style="height: 50px;width:100px;">
+                    @else 
+                    <span>No image found!</span>
+                    @endif
+                </td>
+
+
+
+
+            </p>
+
             <p class="font-bold text-2xl text-black pt-10">
                 {{ $post->excerpt }}
             </p>
