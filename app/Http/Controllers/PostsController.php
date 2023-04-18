@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Requests\PostFormRequest;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -92,11 +93,25 @@ class PostsController extends Controller
      */
     public function update(PostFormRequest $request, $id)
     {
-        $request->validated();
-        Post::where('id', $id)->update($request->except([
-            '_token', '_method'
-        ]));
-        return redirect(route('recipe.index'));
+        $post = Post::findOrFail($id);
+        $validated = $request->validated();
+
+        if ($request->hasFile('image_path')) {
+            // delete image
+            Storage::disk('images')->delete($post->image_path);
+
+            $filePath = $this->storeImage($request);
+            $validated['image_path'] = $filePath;
+        }
+
+        $update = $post->update($validated);
+
+        if ($update) {
+            session()->flash('notif.success', 'Post updated successfully!');
+            return redirect(route('recipe.index'));
+        }
+
+        return abort(500);
     }
 
     /**
@@ -107,14 +122,26 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        Post::destroy($id);
-        return redirect(route('recipe.index'))->with('message', 'Post have been deleted');
+        $post = Post::findOrFail($id);
+
+        Storage::disk('images')->delete($post->image_path);
+
+        $delete = $post->delete($id);
+
+        if ($delete) {
+            session()->flash('notif.success', 'Post deleted successfully!'); //TODO: il faut que ca marche
+            return redirect()->route('recipe.index');
+        }
+
+        return abort(500);
     }
 
     private function storeImage($request)
     {
-        $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
+        $newImageName = uniqid() . '-' . $request->title . '.' . $request->image_path->extension();
 
-        return $request->image->move(public_path('images'), $newImageName);
+        $request->image_path->storeAs('public/images', $newImageName);
+
+        return $newImageName;
     }
 }

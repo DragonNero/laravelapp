@@ -22,12 +22,12 @@ class CategoryFormRequest extends FormRequest
     public function rules(): array
     {
             $rules = [
-            'name' => 'required|max:255|unique:categories,name,' . $this->id,
-            'order' => 'required',
-            'image' => [ 'mimes:jpg, png, jpeg', 'max:5048'],
+                'name' => 'required|max:255|unique:categories,name,' . $this->id,
+                'order' => 'required',
+                'image_path' => [ 'mimes:jpg, png, jpeg', 'max:5048'],
             ];
             if (in_array($this->method(), ['POST'])) {
-                $rules['image'] = [ 'required', 'mimes:jpg, png, jpeg', 'max:5048'];
+                $rules['image_path'] = [ 'required', 'mimes:jpg, png, jpeg', 'max:5048'];
             }
             return $rules;
     }

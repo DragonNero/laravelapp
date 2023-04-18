@@ -22,14 +22,14 @@ class PostFormRequest extends FormRequest
     public function rules(): array
     {
             $rules = [
-            'title' => 'required|max:255|unique:posts,title,' . $this->id,
-            'excerpt' => 'required',
-            'body' => 'required',
-            'minutes_to_read' => 'min:0|max:60',
-            'image' => [ 'mimes:jpg, png, jpeg', 'max:5048'],
+                'title' => 'required|max:255|unique:posts,title,' . $this->id,
+                'excerpt' => 'required',
+                'body' => 'required',
+                'minutes_to_read' => 'min:0|max:60',
+                'image_path' => [ 'mimes:jpg, png, jpeg', 'max:5048'],
             ];
             if (in_array($this->method(), ['POST'])) {
-                $rules['image'] = [ 'required', 'mimes:jpg, png, jpeg', 'max:5048'];
+                $rules['image_path'] = [ 'required', 'mimes:jpg, png, jpeg', 'max:5048'];
             }
             return $rules;
     }

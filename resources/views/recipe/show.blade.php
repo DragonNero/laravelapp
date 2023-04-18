@@ -48,7 +48,7 @@
             <p class="text-base text-black pt-10">
                 <td>
                     @if($post->image_path)
-                    <img src="{{ asset('storage/images'.$post->image_path) }}" style="height: 50px;width:100px;">
+                    <img src="{{ asset('storage/images/'.$post->image_path) }}" style="height: 50px;width:100px;">
                     @else 
                     <span>No image found!</span>
                     @endif
