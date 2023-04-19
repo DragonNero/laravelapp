@@ -37,9 +37,9 @@
                     <a
                         href=""
                         class="font-bold text-green-500 italic hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all py-20">
-                        Code With Dary
+                        Katerina Gloaguen
                     </a>
-                    On 17-07-2022
+                    On 19-04-2023
                 </span>
             </div>
         </div>
@@ -48,7 +48,7 @@
             <p class="text-base text-black pt-10">
                 <td>
                     @if($post->image_path)
-                    <img src="{{ asset('storage/images/'.$post->image_path) }}" style="height: 50px;width:100px;">
+                    <img src="{{ asset('storage/images/'.$post->image_path) }}" style="height: 200px;width:200px;">
                     @else 
                     <span>No image found!</span>
                     @endif

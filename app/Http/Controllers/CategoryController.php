@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CategoryFormRequest;
 use id;
-// use GuzzleHttp\Psr7\Response;
 use App\Models\Category;
+// use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\CategoryFormRequest;
 
 class CategoryController extends Controller
 {
@@ -29,19 +30,21 @@ class CategoryController extends Controller
     {
         return view('category.create');
     }
-
     /**
      * Store a newly created resource in storage.
-     * public function store(Request $request)
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(CategoryFormRequest $request)
     {
+        $request->validated();
+
         Category::create([
             'name' => $request->name,
-            'image_path' => 'temporary',
+            'image_path' => $this->storeImage($request),
             'order' => $request->order,
         ]);
-
         return redirect(route('category.index'));
     }
     /**
@@ -63,8 +66,7 @@ class CategoryController extends Controller
             'category' => Category::findOrFail($id)
         ]);
     }
-
-     /**
+      /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -73,18 +75,55 @@ class CategoryController extends Controller
      */
     public function update(CategoryFormRequest $request, $id)
     {
-        $request->validated();
-        Category::where('id', $id)->update($request->except([
-            '_token', '_method'
-        ]));
-        return redirect(route('category.index'));
+        $category = Category::findOrFail($id);
+        $validated = $request->validated();
+
+        if ($request->hasFile('image_path')) {
+            // delete image
+            Storage::disk('images')->delete($category->image_path);
+
+            $filePath = $this->storeImage($request);
+            $validated['image_path'] = $filePath;
+        }
+
+        $update = $category->update($validated);
+
+        if ($update) {
+            session()->flash('notif.success', 'category updated successfully!');
+            return redirect(route('category.index'));
+        }
+
+        return abort(500);
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        Storage::disk('images')->delete($category->image_path);
+
+        $delete = $category->delete($id);
+
+        if ($delete) {
+            session()->flash('notif.success', 'category deleted successfully!'); //TODO: il faut que ca marche
+            return redirect()->route('category.index');
+        }
+
+        return abort(500);
+    }
+
+    private function storeImage($request)
+    {
+        $newImageName = uniqid() . '-' . $request->title . '.' . $request->image_path->extension();
+
+        $request->image_path->storeAs('public/images', $newImageName);
+
+        return $newImageName;
     }
 }
