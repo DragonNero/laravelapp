@@ -23,6 +23,13 @@ class CategoryController extends Controller
         ]);
     }
 
+    public function home()
+    {
+        return view('category.home', [
+            'categories' =>  Category::orderBy('order', 'asc')->paginate(20)
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PostsController::class, 'index'])->name('home');
+Route::get('/', [CategoryController::class, 'home'])->name('home');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified', 'web']], function () {
     Route::get('/', function () {
