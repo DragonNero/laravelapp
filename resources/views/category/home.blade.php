@@ -15,39 +15,61 @@
 </head>
 <body>
     <header>
-        <div class="header-2">
-            <nav class="bg-white py-2 md:py-4">
-              <div class="container px-4 mx-auto md:flex md:items-center">
-          
-                <div class="flex justify-between items-center">
-                  <a href="#" class="font-bold text-xl text-indigo-600">Dravinka</a>
-                </div>
-          
-                <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
-                  <a href="#" class="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600">Home</a>
-                  <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Appetizers</a>
-                  <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Main Dishes</a>
-                  <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Side Dishes</a>
-                  <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Desserts</a>
-                  <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Cocktails</a>
-                  <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Others</a>
-                </div>
-              </div>
-            </nav>
-          
-            <div class="bg-indigo-100 py-6 md:py-12">
-              <div class="container px-4 mx-auto">
-          
-                <div class="text-center max-w-2xl mx-auto">
-                  <h1 class="text-3xl md:text-4xl font-medium mb-2">DRAVINKA'S RECIPES</h1>
-                  <h2 class="text-3xl md:text-4xl font-medium mb-2">Truly Gourmet </h2>
-                  <div class="mt-4">
-                    <img src="{{ asset('storage/images/myimage.jpg') }}" alt="description of myimage" class="d-block max-w-full rounded shadow-md" style="height: 700px;width:100%;">
-                  </div>
-                </div>
-              </div>
+        <nav class="bg-white px-12 py-12">
+            <div class="flex flex-wrap justify-between items-center max-w-screen-xl">
+                <a href="{{ route('home') }}" class="flex items-center">
+                    <img src="{{ asset('storage/images/logo.jpeg') }}" class="h-8 mr-3" alt="Dravinka Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap">Dravinka</span>
+                </a>
             </div>
-          </div>
+        </nav>
+        <nav class="bg-gray-200">
+            <div class="max-w-screen-xl mx-auto">
+                <div class="flex items-center">
+                    <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
+                        <li class="px-4 py-3 hover:bg-gray-300">
+                            <a href="{{ route('home') }}" class="">HOME</a>
+                        </li>
+                        @foreach ($categories as $category)
+                        <li class="px-4 py-3 hover:bg-gray-300">
+                            <a href="{{ route('home') /* TODO */ }}" class="text-gray-900">{{ $category->name }}</a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
+
+    <div class="w-full relative" style="background-image: url('{{ asset('storage/images/myimage.jpg') }}');
+        height: 600px;
+        background-position: center;
+        background-size: cover;">
+        <div class="w-full bg-gray-300/[.4] py-9 bottom-0 absolute">
+            <div class="text-center max-w-2xl mx-auto">
+                <h1 class="text-6xl font-medium">DRAVINKA'S RECIPES</h1>
+                <h2 class="text-2xl font-medium">Truly Gourmet </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full mt-10">
+        @foreach ($categories as $category)
+        <div class="w-6/12 float-left relative group" style="background-image: url('{{ asset('storage/images/'.$category->image_path) }}');
+        height: 400px;
+        background-position: center;
+        background-size: cover;">
+            <a href="{{ route('home') /* TODO */ }}" class="hidden group-hover:block bg-black/[.5] w-full h-full text-center text-white pt-48 text-2xl">
+                {{ $category->name }}
+            </a>
+        </div>
+        @endforeach
+    </div>
+
+    <div class="clear-both"></div>
+
+    <footer class="py-12 text-center">
+        © {{ date('Y') }} Ekaterina Gloaguen. All rights reserved.
+    </footer>
 </body>
 </html>

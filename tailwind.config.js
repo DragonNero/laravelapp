@@ -15,6 +15,7 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            display: ["group-hover"],
         },
     },
 
