@@ -28,11 +28,11 @@ class CategoriesTableView extends TableView
     public function headers(): array
     {
         return [
-            Header::title('Name')->width('10%')->sortBy('name'),
-            Header::title('Image')->width('100px'),
-            Header::title('Order')->width('100px'),
-            'Created',
-            'Updated',
+            Header::title('Name')->sortBy('name'),
+            Header::title('Image'),
+            Header::title('Order')->width('100px')->sortBy('order'),
+            Header::title('Created')->sortBy('created_at'),
+            Header::title('Updated')->sortBy('updated_at'),
         ];
     }
 

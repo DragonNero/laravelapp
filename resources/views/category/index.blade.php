@@ -5,15 +5,15 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto">
-            <div class="bg-white shadow-sm sm:rounded-lg px-6">
-                <div class="py-5 sm:py-5">
+            <div class="bg-white shadow-sm sm:rounded-lg px-6 pt-5">
+                <div class="py-5">
                     <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
                        href="{{ route('category.create') }}">
                         New Category
                     </a>
                 </div>
 
-                <div class="py-5 sm:py-5">
+                <div class="pb-5">
                     @livewire('categories-table-view')
                 </div>
             </div>
