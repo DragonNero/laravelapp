@@ -26,7 +26,7 @@ class CategoryController extends Controller
     public function home()
     {
         return view('category.home', [
-            'categories' =>  Category::orderBy('order', 'asc')->paginate(200)
+            'categories' =>  Category::orderBy('order', 'asc')->get()
         ]);
     }
 
