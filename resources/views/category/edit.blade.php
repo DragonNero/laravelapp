@@ -6,7 +6,7 @@
                 < Back to previous page
             </a>
         </div>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ __($category->name) }}</h2>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight pt-5">{{ __($category->name) }}</h2>
     </x-slot>
 
     <div class="py-12">
@@ -65,6 +65,18 @@
                                     name="image_path"
                                     class="hidden">
                             </label>
+                        </div>
+                        <div class="pt-0 pb-10 text-gray-900 text-xl">
+                            <p class="text-base text-black pt-1">
+                                Current image:
+                                <td>
+                                    @if($category->image_path)
+                                    <img src="{{ asset('storage/images/'.$category->image_path) }}" style="max-width:550px; margin-left: 150px;">
+                                    @else 
+                                    <span>No image found!</span>
+                                    @endif
+                                </td>
+                            </p>
                         </div>
                 
                         <button
