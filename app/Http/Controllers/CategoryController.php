@@ -127,7 +127,9 @@ class CategoryController extends Controller
 
     private function storeImage($request)
     {
-        $newImageName = uniqid() . '-' . $request->title . '.' . $request->image_path->extension();
+        $name = preg_replace(array('/\s/', '/\.[\.]+/', '/[^\w_\.\-]/'), array('_', '.', ''), $request->name);
+
+        $newImageName = uniqid() . '-' . $name . '.' . $request->image_path->extension();
 
         $request->image_path->storeAs('public/images', $newImageName);
 

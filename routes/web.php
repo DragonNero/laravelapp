@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,16 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified', 'web
         Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
         Route::patch('/{id}', [CategoryController::class, 'update'])->name('category.update');
         Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    });
+
+    Route::group(['prefix' => 'recipes', 'middleware' => ['auth', 'verified', 'web']], function () {
+        Route::get('/create', [RecipeController::class, 'create'])->name('recipe.create');
+        Route::get('/', [RecipeController::class, 'index'])->name('recipe.index');
+        Route::get('/{id}', [RecipeController::class, 'show'])->name('recipe.show');
+        Route::post('/', [RecipeController::class, 'store'])->name('recipe.store');
+        Route::get('/edit/{id}', [RecipeController::class, 'edit'])->name('recipe.edit');
+        Route::patch('/{id}', [RecipeController::class, 'update'])->name('recipe.update');
+        Route::delete('/{id}', [RecipeController::class, 'destroy'])->name('recipe.destroy');
     });
 });
 
