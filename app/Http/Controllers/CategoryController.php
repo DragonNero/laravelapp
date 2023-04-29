@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use id;
 use App\Models\Category;
-// use GuzzleHttp\Psr7\Response;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\CategoryFormRequest;
 

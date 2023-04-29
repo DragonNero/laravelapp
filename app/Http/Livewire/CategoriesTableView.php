@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use LaravelViews\Facades\Header;
 use LaravelViews\Views\TableView;
-use App\Actions\EditCategoryAction;
 use App\Actions\DeleteCategoryAction;
 use LaravelViews\Actions\RedirectAction;
 
