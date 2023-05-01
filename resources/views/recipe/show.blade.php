@@ -22,18 +22,10 @@
                     <td>
                         @if($recipe->image_path)
                         <img src="{{ asset('storage/images/'.$recipe->image_path) }}" style="max-width:550px; margin-left: 361px;">
-                        @else 
+                        @else
                         <span>No image found!</span>
                         @endif
                     </td>
                 </p>
             </div>
-                {{-- <div class="pt-10 pb-10 text-gray-900 text-xl">
-                    <p class="font-bold text-2xl text-black pt-10">
-                        {{ $recipe->order }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 </x-app-layout>

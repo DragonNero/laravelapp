@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\StoreRecipeRequest;
 use App\Http\Requests\UpdateRecipeRequest;
+use App\Http\Requests\RecipeFormRequest;
 
 class RecipeController extends Controller
 {
@@ -30,7 +30,7 @@ class RecipeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRecipeRequest $request)
+    public function store(RecipeFormRequest $request)
     {
         $request->validated();
 

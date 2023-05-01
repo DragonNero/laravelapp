@@ -26,10 +26,10 @@
                 <li>
                 {{ $error }}
                 </li>
-                
+
             @endforeach
         </ul>
-        
+
     @endif
 </div>
     <form
@@ -37,6 +37,15 @@
         method="POST"
         enctype="multipart/form-data">
         @csrf
+
+        <label for="category_id" class="text-gray-500 text-2xl">
+            Category_id
+        </label>
+        <input
+            type="integer"
+            name="category_id"
+            placeholder="..."
+            class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <label for="name" class="text-gray-500 text-2xl">
             Name of recipe
@@ -46,8 +55,11 @@
             name="name"
             placeholder="Name..."
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
-            
+
         <div class="bg-grey-lighter py-10">
+            <label for="prep_time" class="text-gray-500 text-2xl">
+                Image for recipe
+            </label>
             <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
                     <span class="mt-2 text-base leading-normal">
                         Select a file
@@ -58,13 +70,39 @@
                     class="hidden">
             </label>
         </div>
-
-        <label for="order" class="text-gray-500 text-2xl">
-            Order of recipe
+        <label for="prep_time" class="text-gray-500 text-2xl">
+            prep_time of recipe
         </label>
         <input
         type="integer"
-        name="order"
+        name="prep_time"
+        placeholder="..."
+        class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
+
+        <label for="cook_time" class="text-gray-500 text-2xl">
+            cook_time of recipe
+        </label>
+        <input
+        type="integer"
+        name="cook_time"
+        placeholder="..."
+        class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
+
+        <label for="rest_time" class="text-gray-500 text-2xl">
+            rest_time of recipe
+        </label>
+        <input
+        type="integer"
+        name="rest_time"
+        placeholder="..."
+        class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
+
+        <label for="servings" class="text-gray-500 text-2xl">
+            servings
+        </label>
+        <input
+        type="integer"
+        name="servings"
         placeholder="..."
         class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
