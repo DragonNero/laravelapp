@@ -12,7 +12,7 @@
         <div class="clear-both"></div>
     </x-slot>
         <div class="pb-1 pt-5" style="margin-left: 80px;">
-            <livewire:recipe-detail-view :model="1" />
+            <livewire:recipe-detail-view :model="2" />
         </div>
 
 
