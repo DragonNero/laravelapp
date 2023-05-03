@@ -2,23 +2,22 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Category;
+use App\Models\Ingredient;
 use LaravelViews\Facades\Header;
 use LaravelViews\Views\TableView;
-use App\Actions\DeleteCategoryAction;
+use App\Actions\DeleteIngredientAction;
 use LaravelViews\Actions\RedirectAction;
-use LaravelViews\Facades\UI;
 
-class CategoriesTableView extends TableView
+class IngredientsTableView extends TableView
 {
     /**
      * Sets a model class to get the initial data
      */
-    protected $model = Category::class;
+    protected $model = Ingredient::class;
 
     protected function repository()
     {
-        return Category::query();
+        return Ingredient::query();
     }
     /**
      * Sets the headers of the table as you want to be displayed
@@ -29,8 +28,6 @@ class CategoriesTableView extends TableView
     {
         return [
             Header::title('Name')->sortBy('name'),
-            Header::title('Image'),
-            Header::title('Order')->width('100px')->sortBy('order'),
             Header::title('Created')->sortBy('created_at'),
             Header::title('Updated')->sortBy('updated_at'),
         ];
@@ -45,8 +42,6 @@ class CategoriesTableView extends TableView
     {
         return [
             $model->name,
-            UI::avatar(asset('storage/images/' . $model->image_path)),
-            $model->order,
             $model->created_at,
             $model->updated_at
         ];
@@ -55,9 +50,9 @@ class CategoriesTableView extends TableView
     protected function actionsByRow()
     {
         return [
-            new RedirectAction('category.show', 'See category', 'eye'),
-            new RedirectAction('category.edit', 'Edit category', 'edit-2'),
-            new DeleteCategoryAction(),
+            new RedirectAction('ingredient.show', 'See ingredient', 'eye'),
+            new RedirectAction('ingredient.edit', 'Edit ingredient', 'edit-2'),
+            new DeleteIngredientAction(),
         ];
     }
 }

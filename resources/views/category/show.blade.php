@@ -12,7 +12,7 @@
         <div class="clear-both"></div>
     </x-slot>
         <div class="pb-1 pt-5" style="margin-left: 80px;">
-            <livewire:category-detail-view :model="1" />
+            <livewire:category-detail-view :model="$category->id" />
         </div>
 
 
@@ -22,7 +22,7 @@
                     <td>
                         @if($category->image_path)
                         <img src="{{ asset('storage/images/'.$category->image_path) }}" style="max-width:550px; margin-left: 361px;">
-                        @else 
+                        @else
                         <span>No image found!</span>
                         @endif
                     </td>

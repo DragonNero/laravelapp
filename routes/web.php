@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PostsController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UnitController;
+use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IngredientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [CategoryController::class, 'home'])->name('home');
+
+Route::group(['prefix' => '/'], function () {
+    Route::get('/', [HomeController::class, 'home'])->name('home');
+    Route::get('/all', [HomeController::class, 'all'])->name('home.all');
+    Route::get('/categoryrecipe/{name}', [HomeController::class, 'categoryrecipe'])->name('home.categoryrecipe');
+});
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified', 'web']], function () {
     Route::get('/', function () {
@@ -42,6 +49,26 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified', 'web
         Route::get('/edit/{id}', [RecipeController::class, 'edit'])->name('recipe.edit');
         Route::patch('/{id}', [RecipeController::class, 'update'])->name('recipe.update');
         Route::delete('/{id}', [RecipeController::class, 'destroy'])->name('recipe.destroy');
+    });
+
+    Route::group(['prefix' => 'units', 'middleware' => ['auth', 'verified', 'web']], function () {
+        Route::get('/create', [UnitController::class, 'create'])->name('unit.create');
+        Route::get('/', [UnitController::class, 'index'])->name('unit.index');
+        Route::get('/{id}', [UnitController::class, 'show'])->name('unit.show');
+        Route::post('/', [UnitController::class, 'store'])->name('unit.store');
+        Route::get('/edit/{id}', [UnitController::class, 'edit'])->name('unit.edit');
+        Route::patch('/{id}', [UnitController::class, 'update'])->name('unit.update');
+        Route::delete('/{id}', [UnitController::class, 'destroy'])->name('unit.destroy');
+    });
+
+    Route::group(['prefix' => 'ingredients', 'middleware' => ['auth', 'verified', 'web']], function () {
+        Route::get('/create', [IngredientController::class, 'create'])->name('ingredient.create');
+        Route::get('/', [IngredientController::class, 'index'])->name('ingredient.index');
+        Route::get('/{id}', [IngredientController::class, 'show'])->name('ingredient.show');
+        Route::post('/', [IngredientController::class, 'store'])->name('ingredient.store');
+        Route::get('/edit/{id}', [IngredientController::class, 'edit'])->name('ingredient.edit');
+        Route::patch('/{id}', [IngredientController::class, 'update'])->name('ingredient.update');
+        Route::delete('/{id}', [IngredientController::class, 'destroy'])->name('ingredient.destroy');
     });
 });
 

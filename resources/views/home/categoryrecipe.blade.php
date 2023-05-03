@@ -12,13 +12,13 @@
     </div>
 
     <div class="w-full mt-10">
-        @foreach ($categories as $category)
-        <div class="w-6/12 float-left relative group" style="background-image: url('{{ asset('storage/images/'.$category->image_path) }}');
+        @foreach ($recipes as $recipe)
+        <div class="w-4/12 float-left relative group" style="background-image: url('{{ asset('storage/images/'.$recipe->image_path) }}');
         height: 400px;
         background-position: center;
         background-size: cover;">
             <a href="{{ route('home') /* TODO */ }}" class="hidden group-hover:block bg-black/[.5] w-full h-full text-center text-white pt-48 text-2xl">
-                {{ $category->name }}
+                {{ $recipe->name }}
             </a>
         </div>
         @endforeach

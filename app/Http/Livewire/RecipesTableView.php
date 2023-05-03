@@ -6,9 +6,8 @@ use App\Models\Recipe;
 use LaravelViews\Facades\Header;
 use LaravelViews\Views\TableView;
 use App\Actions\DeleteRecipeAction;
-use App\Actions\EditCategoryAction;
-use App\Actions\DeleteCategoryAction;
 use LaravelViews\Actions\RedirectAction;
+use LaravelViews\Facades\UI;
 
 class RecipesTableView extends TableView
 {
@@ -48,11 +47,13 @@ class RecipesTableView extends TableView
     public function row($model): array
     {
         return [
+            $model->category_id,
             $model->name,
-            $model->image_path,
-            $model->order,
-            $model->created_at,
-            $model->updated_at
+            UI::avatar(asset('storage/images/' . $model->image_path)),
+            $model->prep_time,
+            $model->cook_time,
+            $model->rest_time,
+            $model->servings
         ];
     }
     /** For actions by item */
