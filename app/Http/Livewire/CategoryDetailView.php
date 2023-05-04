@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use LaravelViews\Views\DetailView;
+use App\Actions\DeleteCategoryAction;
 
 class CategoryDetailView extends DetailView
 {

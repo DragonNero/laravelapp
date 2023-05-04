@@ -4,25 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\RecipeIngredientUnit;
+use App\Models\Unit;
+use App\Models\Ingredient;
+use App\Models\Recipe;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Recipe extends Model
+class RecipeIngredientUnit extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'category_id',
-        'name',
-        'image_path',
-        'prep_time',
-        'cook_time',
-        'rest_time',
-        'servings',
+        'value',
     ];
 
     public function roles(): BelongsToMany
     {
-        return $this->belongsToMany(RecipeIngredientUnit::class);
+        return $this->belongsToMany(Ingredient::class);
+        return $this->belongsToMany(Unit::class);
+        return $this->belongsToMany(Recipe::class);
     }
 }

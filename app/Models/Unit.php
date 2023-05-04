@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\RecipeIngredientUnit;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Unit extends Model
 {
@@ -12,4 +14,8 @@ class Unit extends Model
     protected $fillable = [
         'name',
     ];
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(RecipeIngredientUnit::class);
+    }
 }

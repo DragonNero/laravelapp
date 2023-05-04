@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\UpdateRecipeRequest;
 use App\Http\Requests\RecipeFormRequest;
 
 class RecipeController extends Controller
@@ -69,7 +68,7 @@ class RecipeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRecipeRequest $request, $id)
+    public function update(RecipeFormRequest $request, $id)
     {
         $recipe = Recipe::findOrFail($id);
         $validated = $request->validated();
