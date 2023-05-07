@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Recipe;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\RecipeFormRequest;
+use App\Models\Category;
 
 class RecipeController extends Controller
 {
@@ -23,7 +24,9 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view('recipe.create');
+        return view('recipe.create', [
+            'categories' => Category::orderBy('order', 'asc')->get(),
+        ]);
     }
 
     /**
@@ -61,7 +64,8 @@ class RecipeController extends Controller
     public function edit($id)
     {
         return view('recipe.edit', [
-            'recipe' => Recipe::findOrFail($id)
+            'recipe' => Recipe::findOrFail($id),
+            'categories' => Category::orderBy('order', 'asc')->get(),
         ]);
     }
 

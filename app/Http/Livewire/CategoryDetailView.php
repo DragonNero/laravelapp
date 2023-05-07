@@ -3,28 +3,16 @@
 namespace App\Http\Livewire;
 
 use App\Models\Category;
+use LaravelViews\Facades\UI;
 use LaravelViews\Views\DetailView;
-use App\Actions\DeleteCategoryAction;
 
 class CategoryDetailView extends DetailView
 {
     /**
      * Sets a model class to get the initial data
      */
-    public $modelClass = \App\Models\Category::class;
+    public $modelClass = Category::class;
 
-    /**
-     * Sets the headers of the table as you want to be displayed
-     *
-     * @return array<string> Array of headers
-     */
-    // public function heading($model)
-    // {
-    //     return [
-    //         "This is the detail view of {$model->name}",
-    //     ];
-    // }
-    public $title = "Category";
     /**
      * @param $model Model instance
      * @return Array Array with all the detail data or the components
@@ -32,9 +20,11 @@ class CategoryDetailView extends DetailView
     public function detail($model)
     {
         return [
-            'Name' => $model->name,
-            // 'Image' => $model->image_path,
-            'Order' => $model->order,
+            UI::attributes([
+              'Name' => $model->name,
+              'Order' => $model->order,
+            ]),
+            UI::component('components.view-image', ['image_path' => $model->image_path]),
         ];
     }
 }

@@ -14,7 +14,8 @@ class Unit extends Model
     protected $fillable = [
         'name',
     ];
-    public function roles(): BelongsToMany
+
+    public function recipeIngredientUnits(): BelongsToMany
     {
         return $this->belongsToMany(RecipeIngredientUnit::class);
     }

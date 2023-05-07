@@ -41,11 +41,13 @@
         <label for="category_id" class="text-gray-500 text-2xl">
             Category_id
         </label>
-        <input
-            type="integer"
-            name="category_id"
-            placeholder="..."
-            class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
+
+        <select name="category_id" class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
+            <option value=""></option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
 
         <label for="name" class="text-gray-500 text-2xl">
             Name of recipe

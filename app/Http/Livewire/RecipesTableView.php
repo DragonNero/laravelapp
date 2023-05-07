@@ -29,12 +29,12 @@ class RecipesTableView extends TableView
     public function headers(): array
     {
         return [
-            Header::title('Category_id')->sortBy('category_id'),
+            Header::title('Category')->sortBy('category_id'),
             Header::title('Name')->sortBy('name'),
             Header::title('Image'),
-            Header::title('Prep_time')->width('100px')->sortBy('prep_time'),
-            Header::title('Cook_time')->sortBy('cook_time'),
-            Header::title('Rest_time')->sortBy('rest_time'),
+            Header::title('Prep Time')->width('100px')->sortBy('prep_time'),
+            Header::title('Cook Time')->sortBy('cook_time'),
+            Header::title('Rest Time')->sortBy('rest_time'),
             Header::title('Servings')->sortBy('servings'),
         ];
     }
@@ -47,7 +47,7 @@ class RecipesTableView extends TableView
     public function row($model): array
     {
         return [
-            $model->category_id,
+            $model->category->name,
             $model->name,
             UI::avatar(asset('storage/images/' . $model->image_path)),
             $model->prep_time,

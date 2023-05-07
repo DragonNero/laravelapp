@@ -21,19 +21,19 @@ class RecipeFormRequest extends FormRequest
      */
     public function rules(): array
     {
-            $rules = [
-                'category_id' => 'required',
-                'name' => 'required|max:255|unique:categories,name,' . $this->id,
-                'image_path' => [ 'mimes:jpg, png, jpeg', 'max:5048'],
-                'prep_time' => 'required',
-                'cook_time' => 'required',
-                'rest_time' => 'required',
-                'servings' => 'required',
+        $rules = [
+            'category_id' => 'required',
+            'name' => 'required|max:255|unique:categories,name,' . $this->id,
+            'image_path' => [ 'mimes:jpg, png, jpeg', 'max:5048'],
+            'prep_time' => 'required',
+            'cook_time' => 'required',
+            'rest_time' => 'required',
+            'servings' => 'required',
 
-            ];
-            if (in_array($this->method(), ['POST'])) {
-                $rules['image_path'] = [ 'required', 'mimes:jpg, png, jpeg', 'max:5048'];
-            }
-            return $rules;
+        ];
+        if (in_array($this->method(), ['POST'])) {
+            $rules['image_path'] = [ 'required', 'mimes:jpg, png, jpeg', 'max:5048'];
+        }
+        return $rules;
     }
 }

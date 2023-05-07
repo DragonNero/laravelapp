@@ -28,13 +28,13 @@
         <nav class="bg-gray-200">
             <div class="max-w-screen-xl mx-auto">
                 <div class="flex items-center">
-                    <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
-                        <li class="px-4 py-3 hover:bg-gray-300">
-                            <a href="{{ route('home') }}" class="">HOME</a>
+                    <ul class="flex flex-row font-medium mt-0 mr-6 text-sm">
+                        <li class="hover:bg-gray-300 h-10 inline-flex">
+                            <a href="{{ route('home') }}" class="px-4 h-full pt-3">HOME</a>
                         </li>
                         @foreach ($categories as $category)
-                        <li class="px-4 py-3 hover:bg-gray-300">
-                            <a href="{{ route('home') /* TODO */ }}" class="text-gray-900">{{ $category->name }}</a>
+                        <li class="hover:bg-gray-300 h-10 inline-flex">
+                            <a href="{{ route('home.categoryrecipe', ['name' => $category->name]) }}" class="px-4 h-full pt-3 text-gray-900">{{ $category->name }}</a>
                         </li>
                         @endforeach
                     </ul>

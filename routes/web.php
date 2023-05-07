@@ -7,6 +7,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\RecipeIngredientUnitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,16 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified', 'web
         Route::get('/edit/{id}', [IngredientController::class, 'edit'])->name('ingredient.edit');
         Route::patch('/{id}', [IngredientController::class, 'update'])->name('ingredient.update');
         Route::delete('/{id}', [IngredientController::class, 'destroy'])->name('ingredient.destroy');
+    });
+
+    Route::group(['prefix' => 'recipeingredientunit', 'middleware' => ['auth', 'verified', 'web']], function () {
+        Route::get('/create', [RecipeIngredientUnitController::class, 'create'])->name('recipeingredientunit.create');
+        Route::get('/', [RecipeIngredientUnitController::class, 'index'])->name('recipeingredientunit.index');
+        Route::get('/{id}', [RecipeIngredientUnitController::class, 'show'])->name('recipeingredientunit.show');
+        Route::post('/', [RecipeIngredientUnitController::class, 'store'])->name('recipeingredientunit.store');
+        Route::get('/edit/{id}', [RecipeIngredientUnitController::class, 'edit'])->name('recipeingredientunit.edit');
+        Route::patch('/{id}', [RecipeIngredientUnitController::class, 'update'])->name('recipeingredientunit.update');
+        Route::delete('/{id}', [RecipeIngredientUnitController::class, 'destroy'])->name('recipeingredientunit.destroy');
     });
 });
 

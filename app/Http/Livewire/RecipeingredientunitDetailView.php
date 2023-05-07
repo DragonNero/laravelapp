@@ -2,15 +2,15 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Recipe;
+use App\Models\RecipeIngredientUnit;
 use LaravelViews\Views\DetailView;
 
-class RecipeDetailView extends DetailView
+class RecipeingredientunitDetailView extends DetailView
 {
     /**
      * Sets a model class to get the initial data
      */
-    public $modelClass = \App\Models\Recipe::class;
+    public $modelClass = RecipeIngredientUnit::class;
 
     /**
      * Sets the headers of the table as you want to be displayed
@@ -23,7 +23,7 @@ class RecipeDetailView extends DetailView
     //         "This is the detail view of {$model->name}",
     //     ];
     // }
-    public $title = "Recipe";
+    public $title = "RecipeIngredientUnit";
     /**
      * @param $model Model instance
      * @return Array Array with all the detail data or the components
@@ -31,12 +31,10 @@ class RecipeDetailView extends DetailView
     public function detail($model)
     {
         return [
-            'Category' => $model->category->name,
-            'Name' => $model->name,
-            'Prep Time' => $model->prep_time,
-            'Cook Time' => $model->cook_time,
-            'Rest Time' => $model->rest_time,
-            'Servings' => $model->servings,
+            'Recipe_id' => $model->recipe_id,
+            'Unit_id' => $model->unit_id,
+            'Ingredient_id' => $model->ingredient_id,
+            'Value' => $model->value,
         ];
     }
 }

@@ -15,7 +15,7 @@ class Ingredient extends Model
         'name',
     ];
 
-    public function roles(): BelongsToMany
+    public function recipeIngredientUnits(): BelongsToMany
     {
         return $this->belongsToMany(RecipeIngredientUnit::class);
     }

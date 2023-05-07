@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recipe_ingredient_unit', function (Blueprint $table) {
+        Schema::create('recipe_ingredient_units', function (Blueprint $table) {
             $table->id();
             $table->foreignId('recipe_id')->index();
             $table->foreignId('ingredient_id')->index();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recipe_ingredient_unit');
+        Schema::dropIfExists('recipe_ingredient_units');
     }
 };

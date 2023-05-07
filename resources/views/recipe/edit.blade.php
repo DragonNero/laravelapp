@@ -30,7 +30,6 @@
                                 <li>
                                 {{ $error }}
                                 </li>
-
                             @endforeach
                         </ul>
 
@@ -43,11 +42,11 @@
                         @csrf
                         @method('PATCH')
 
-                        <input
-                            type="text"
-                            name="category_id"
-                            value="{{ $recipe->category_id }}"
-                            class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
+                        <select name="category_id" class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}" @if ($recipe->category_id == $category->id) selected @endif>{{ $category->name }}</option>
+                            @endforeach
+                        </select>
 
                         <input
                             type="text"
