@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StepController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\ProfileController;
@@ -80,6 +81,16 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified', 'web
         Route::get('/edit/{id}', [RecipeIngredientUnitController::class, 'edit'])->name('recipeingredientunit.edit');
         Route::patch('/{id}', [RecipeIngredientUnitController::class, 'update'])->name('recipeingredientunit.update');
         Route::delete('/{id}', [RecipeIngredientUnitController::class, 'destroy'])->name('recipeingredientunit.destroy');
+    });
+
+    Route::group(['prefix' => 'steps', 'middleware' => ['auth', 'verified', 'web']], function () {
+        Route::get('/create', [StepController::class, 'create'])->name('step.create');
+        Route::get('/', [StepController::class, 'index'])->name('step.index');
+        Route::get('/{id}', [StepController::class, 'show'])->name('step.show');
+        Route::post('/', [StepController::class, 'store'])->name('step.store');
+        Route::get('/edit/{id}', [StepController::class, 'edit'])->name('step.edit');
+        Route::patch('/{id}', [StepController::class, 'update'])->name('step.update');
+        Route::delete('/{id}', [StepController::class, 'destroy'])->name('step.destroy');
     });
 });
 
