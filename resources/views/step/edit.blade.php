@@ -51,6 +51,21 @@
                     </li>
                     <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
                         <div class="text-xs leading-4 font-semibold uppercase tracking-wider text-gray-900 sm:w-3/12">
+                            Recipe
+                        </div>
+
+
+                        <div class="mt-1 text-sm leading-5 sm:mt-0 sm:w-9/12">
+                            <select name="recipe_id" class="">
+                                @foreach ($recipes as $recipe)
+                                    <option value="{{ $recipe->id }}" @if ($step->recipe_id == $recipe->id) selected @endif>{{ $recipe->name }}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+                    </li>
+                    <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
+                        <div class="text-xs leading-4 font-semibold uppercase tracking-wider text-gray-900 sm:w-3/12">
                             Instruction
                         </div>
                         <div class="mt-1 text-sm leading-5 sm:mt-0 sm:w-9/12">

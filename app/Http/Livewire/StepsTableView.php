@@ -28,6 +28,7 @@ class StepsTableView extends TableView
     {
         return [
             Header::title('Order')->sortBy('order'),
+            Header::title('Recipe')->sortBy('recipe_id'),
             Header::title('Instruction')->sortBy('instruction'),
             Header::title('Created')->sortBy('created_at'),
             Header::title('Updated')->sortBy('updated_at'),
@@ -43,6 +44,7 @@ class StepsTableView extends TableView
     {
         return [
             $model->order,
+            $model->recipe->name,
             $model->instruction,
             $model->created_at,
             $model->updated_at

@@ -13,6 +13,7 @@ class Step extends Model
 
     protected $fillable = [
         'order',
+        'recipe_id',
         'instruction',
     ];
 

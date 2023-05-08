@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Step;
 use Illuminate\Http\Request;
 use App\Http\Requests\StepFormRequest;
+use App\Models\Recipe;
 
 class StepController extends Controller
 {
@@ -14,7 +15,7 @@ class StepController extends Controller
     public function index()
     {
         return view('step.index', [
-            'steps' =>  Step::orderBy('id', 'asc')->paginate(20)
+            'steps' =>  Step::orderBy('recipe_id', 'asc')->paginate(20)
         ]);
     }
     /**
@@ -22,7 +23,9 @@ class StepController extends Controller
      */
     public function create()
     {
-        return view('step.create');
+        return view('step.create', [
+            'recipes' => Recipe::orderBy('id', 'asc')->get(),
+        ]);
     }
     /**
      * Store a newly created resource in storage.
@@ -36,6 +39,7 @@ class StepController extends Controller
 
         Step::create([
             'order' => $request->order,
+            'recipe_id' => $request->recipe_id,
             'instruction' => $request->instruction,
         ]);
         return redirect(route('step.index'));
@@ -56,7 +60,8 @@ class StepController extends Controller
     public function edit($id)
     {
         return view('step.edit', [
-            'step' => Step::findOrFail($id)
+            'step' => Step::findOrFail($id),
+            'recipes' => Recipe::orderBy('id', 'asc')->get(),
         ]);
     }
       /**
