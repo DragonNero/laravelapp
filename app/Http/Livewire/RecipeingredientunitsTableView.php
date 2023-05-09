@@ -44,9 +44,9 @@ class RecipeingredientunitsTableView extends TableView
     public function row($model): array
     {
         return [
-            $model->recipe_id,
-            $model->unit_id,
-            $model->ingredient_id,
+            $model->recipe->name,
+            $model->unit->name,
+            $model->ingredient->name,
             UI::editable($model, 'value'),
         ];
     }

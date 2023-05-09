@@ -31,8 +31,8 @@ class StepDetailView extends DetailView
     public function detail($model)
     {
         return [
-            'Order' => $model->order,
             'Recipe' => $model->recipe->name,
+            'Order' => $model->order,
             'Instruction' => $model->instruction,
         ];
     }

@@ -27,8 +27,8 @@ class StepsTableView extends TableView
     public function headers(): array
     {
         return [
-            Header::title('Order')->sortBy('order'),
             Header::title('Recipe')->sortBy('recipe_id'),
+            Header::title('Order')->sortBy('order'),
             Header::title('Instruction')->sortBy('instruction'),
             Header::title('Created')->sortBy('created_at'),
             Header::title('Updated')->sortBy('updated_at'),
@@ -43,8 +43,8 @@ class StepsTableView extends TableView
     public function row($model): array
     {
         return [
-            $model->order,
             $model->recipe->name,
+            $model->order,
             $model->instruction,
             $model->created_at,
             $model->updated_at

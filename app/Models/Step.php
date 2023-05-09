@@ -12,8 +12,8 @@ class Step extends Model
     use HasFactory;
 
     protected $fillable = [
-        'order',
         'recipe_id',
+        'order',
         'instruction',
     ];
 

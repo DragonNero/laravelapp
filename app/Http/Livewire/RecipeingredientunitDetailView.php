@@ -31,9 +31,9 @@ class RecipeingredientunitDetailView extends DetailView
     public function detail($model)
     {
         return [
-            'Recipe_id' => $model->recipe_id,
-            'Unit_id' => $model->unit_id,
-            'Ingredient_id' => $model->ingredient_id,
+            'Recipe' => $model->recipe->name,
+            'Unit' => $model->unit->name,
+            'Ingredient' => $model->ingredient->name,
             'Value' => $model->value,
         ];
     }

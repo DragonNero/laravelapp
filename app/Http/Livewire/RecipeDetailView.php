@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Recipe;
+use LaravelViews\Facades\UI;
 use LaravelViews\Views\DetailView;
 
 class RecipeDetailView extends DetailView
@@ -31,12 +32,15 @@ class RecipeDetailView extends DetailView
     public function detail($model)
     {
         return [
-            'Category' => $model->category->name,
-            'Name' => $model->name,
-            'Prep Time' => $model->prep_time,
-            'Cook Time' => $model->cook_time,
-            'Rest Time' => $model->rest_time,
-            'Servings' => $model->servings,
+            UI::attributes([
+                'Category' => $model->category->name,
+                'Name' => $model->name,
+                'Prep Time' => $model->prep_time,
+                'Cook Time' => $model->cook_time,
+                'Rest Time' => $model->rest_time,
+                'Servings' => $model->servings,
+            ]),
+            UI::component('components.view-image', ['image_path' => $model->image_path]),
         ];
     }
 }

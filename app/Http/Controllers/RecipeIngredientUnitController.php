@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RecipeIngredientUnit;
+use App\Models\Unit;
+use App\Models\Recipe;
+use App\Models\Ingredient;
 use Illuminate\Http\Response;
+use App\Models\RecipeIngredientUnit;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\RecipeIngredientUnitFormRequest;
 
@@ -23,7 +26,12 @@ class RecipeIngredientUnitController extends Controller
      */
     public function create()
     {
-        return view('recipeingredientunit.create');
+        return view('recipeingredientunit.create', [
+            'recipes' => Recipe::orderBy('id', 'asc')->get(),
+            'ingredients' => Ingredient::orderBy('id', 'asc')->get(),
+            'units' => Unit::orderBy('id', 'asc')->get(),
+
+        ]);
     }
     /**
      * Store a newly created resource in storage.
@@ -59,7 +67,10 @@ class RecipeIngredientUnitController extends Controller
     public function edit($id)
     {
         return view('recipeingredientunit.edit', [
-            'recipeingredientunit' => RecipeIngredientUnit::findOrFail($id)
+            'recipeingredientunit' => RecipeIngredientUnit::findOrFail($id),
+            'recipes' => Recipe::orderBy('id', 'asc')->get(),
+            'ingredients' => Ingredient::orderBy('id', 'asc')->get(),
+            'units' => Unit::orderBy('id', 'asc')->get(),
         ]);
     }
       /**

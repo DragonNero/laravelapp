@@ -22,8 +22,8 @@ class StepFormRequest extends FormRequest
     public function rules(): array
     {
             $rules = [
-                'order' => 'required',
                 'recipe_id' => 'required',
+                'order' => 'required',
                 'instruction' => 'required',
             ];
             return $rules;

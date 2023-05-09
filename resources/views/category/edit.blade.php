@@ -63,11 +63,11 @@
                     </li>
                     <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
                         <div class="text-xs leading-4 font-semibold uppercase tracking-wider text-gray-900 sm:w-3/12">
-                            Image
+                            Select a new Image
                         </div>
                         <div class="mt-1 text-sm leading-5 sm:mt-0 sm:w-9/12">
-                            <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
-                                <span class="mt-2 text-base leading-normal">
+                            <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg rounded shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
+                                <span class="mt-2 items-center text-base leading-normal">
                                     Select a file
                                 </span>
                                 <input
@@ -75,9 +75,16 @@
                                     name="image_path"
                                     class="hidden">
                             </label>
+                        </div>
+                    </li>
+                    <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
+                        <div class="text-xs leading-4 font-semibold uppercase tracking-wider text-gray-900 sm:w-3/12">
+                            Current Image
+                        </div>
+                        <div class="mt-1 text-sm leading-5 sm:mt-0 sm:w-9/12">
                             <div class="mt-5">
                                 @if ($category->image_path)
-                                    <img src="{{ asset('storage/images/'.$category->image_path) }}" style="max-width:550px;">
+                                    <img src="{{ asset('storage/images/'.$category->image_path) }}" style="max-width:550px;" class="rounded">
                                 @else
                                     <span>No image found!</span>
                                 @endif

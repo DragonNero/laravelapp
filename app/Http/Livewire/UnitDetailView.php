@@ -32,6 +32,8 @@ class UnitDetailView extends DetailView
     {
         return [
             'Name' => $model->name,
+            'Created' => $model->created_at,
+            'Updated' => $model->updated_at,
         ];
     }
 }

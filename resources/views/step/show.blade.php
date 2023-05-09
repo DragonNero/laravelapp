@@ -7,7 +7,7 @@
             </a>
         </div>
 
-        <h2 class="py-2.5 px-5 bg-white font-semibold text-xl text-gray-800 leading-tight float-left">{{ __($step->id) }}</h2>
+        <h2 class="py-2.5 px-5 bg-white font-semibold text-xl text-gray-800 leading-tight float-left">Step №{{ __($step->id) }}</h2>
 
         <form method="POST" action="{{ route('step.destroy', ['id' => $step->id ]) }}" class="float-right ml-3">
             {{ csrf_field() }}

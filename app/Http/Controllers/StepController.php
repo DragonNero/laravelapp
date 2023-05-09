@@ -38,8 +38,8 @@ class StepController extends Controller
         $request->validated();
 
         Step::create([
-            'order' => $request->order,
             'recipe_id' => $request->recipe_id,
+            'order' => $request->order,
             'instruction' => $request->instruction,
         ]);
         return redirect(route('step.index'));
