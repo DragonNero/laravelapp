@@ -44,7 +44,7 @@
 
 
                         <div class="mt-1 text-sm leading-5 sm:mt-0 sm:w-9/12">
-                            <select name="recipe_id" class="">
+                            <select name="recipe_id" class="w-1/3 border-gray-300 hover:border-gray-500 px-2 py-1 rounded focus:border-blue-600 focus:border-2 border">>
                                 @foreach ($recipes as $recipe)
                                     <option value="{{ $recipe->id }}" @if ($step->recipe_id == $recipe->id) selected @endif>{{ $recipe->name }}</option>
                                 @endforeach

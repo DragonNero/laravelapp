@@ -23,11 +23,11 @@ class CategoryFormRequest extends FormRequest
     {
             $rules = [
                 'name' => 'required|max:255|unique:categories,name,' . $this->id,
-                'order' => 'required',
-                'image_path' => [ 'mimes:jpg, png, jpeg', 'max:5048'],
+                'order' => 'required|unique:categories,order,' . $this->id,
+                'image_path' => ['mimes:jpg, png, jpeg', 'max:5048'],
             ];
             if (in_array($this->method(), ['POST'])) {
-                $rules['image_path'] = [ 'required', 'mimes:jpg, png, jpeg', 'max:5048'];
+                $rules['image_path'] = ['required', 'mimes:jpg, png, jpeg', 'max:5048'];
             }
             return $rules;
     }

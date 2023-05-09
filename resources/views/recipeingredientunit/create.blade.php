@@ -51,15 +51,14 @@
                     </li>
                     <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
                         <div class="text-xs leading-4 font-semibold uppercase tracking-wider text-gray-900 sm:w-3/12">
-                            Ingredient
+                            Value
                         </div>
-                        <div class="mt-1 text-sm leading-5 sm:mt-0 sm:w-9/12">
-                            <select name="ingredient_id" class="rounded w-1/3  border-gray-300 hover:border-gray-500">
-                                <option value=""></option>
-                                @foreach ($ingredients as $ingredient)
-                                    <option value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
-                                @endforeach
-                            </select>
+                        <div class="mt-1 text-m leading-5 sm:mt-0 sm:w-9/12">
+                            <input
+                                type="integer"
+                                name="value"
+                                placeholder=""
+                                class="w-1/3 border-gray-300 hover:border-gray-500 px-2 py-1 rounded focus:border-blue-600 focus:border-2 border">
                         </div>
                     </li>
                     <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
@@ -77,14 +76,15 @@
                     </li>
                     <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
                         <div class="text-xs leading-4 font-semibold uppercase tracking-wider text-gray-900 sm:w-3/12">
-                            Value
+                            Ingredient
                         </div>
-                        <div class="mt-1 text-m leading-5 sm:mt-0 sm:w-9/12">
-                            <input
-                                type="integer"
-                                name="value"
-                                placeholder=""
-                                class="w-1/3 border-gray-300 hover:border-gray-500 px-2 py-1 rounded focus:border-blue-600 focus:border-2 border">
+                        <div class="mt-1 text-sm leading-5 sm:mt-0 sm:w-9/12">
+                            <select name="ingredient_id" class="rounded w-1/3  border-gray-300 hover:border-gray-500">
+                                <option value=""></option>
+                                @foreach ($ingredients as $ingredient)
+                                    <option value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </li>
                 </ul>

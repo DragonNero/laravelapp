@@ -23,8 +23,8 @@ class RecipeFormRequest extends FormRequest
     {
         $rules = [
             'category_id' => 'required',
-            'name' => 'required|max:255|unique:categories,name,' . $this->id,
-            'image_path' => [ 'mimes:jpg, png, jpeg', 'max:5048'],
+            'name' => 'required|max:255|unique:recipes,name,' . $this->id,
+            'image_path' => ['mimes:jpg, png, jpeg', 'max:5048'],
             'prep_time' => 'required',
             'cook_time' => 'required',
             'rest_time' => 'required',

@@ -30,9 +30,9 @@ class RecipeingredientunitsTableView extends TableView
     {
         return [
             Header::title('recipe_id')->sortBy('recipe_id'),
+            Header::title('value')->sortBy('value'),
             Header::title('unit_id')->sortBy('unit_id'),
             Header::title('ingredient_id')->sortBy('ingredient_id'),
-            Header::title('value')->sortBy('value'),
         ];
     }
 
@@ -45,9 +45,9 @@ class RecipeingredientunitsTableView extends TableView
     {
         return [
             $model->recipe->name,
+            UI::editable($model, 'value'),
             $model->unit->name,
             $model->ingredient->name,
-            UI::editable($model, 'value'),
         ];
     }
 

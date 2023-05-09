@@ -7,7 +7,7 @@
             </a>
         </div>
 
-        <h2 class="py-2.5 px-5 bg-white font-semibold text-xl text-gray-800 leading-tight float-left">{{ __($recipeingredientunit->id) }}</h2>
+        <h2 class="py-2.5 px-5 bg-white font-semibold text-xl text-gray-800 leading-tight float-left"></h2>
 
         <div class="clear-both"></div>
     </x-slot>
@@ -49,14 +49,14 @@
                     </li>
                     <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
                         <div class="text-xs leading-4 font-semibold uppercase tracking-wider text-gray-900 sm:w-3/12">
-                            Ingredient
+                            Value
                         </div>
                         <div class="mt-1 text-sm leading-5 sm:mt-0 sm:w-9/12">
-                            <select name="category_id" class="w-1/3 border-gray-300 hover:border-gray-500 px-2 py-1 rounded focus:border-blue-600 focus:border-2 border">
-                                @foreach ($ingredients as $ingredient)
-                                    <option value="{{ $ingredient->id }}" @if ($recipeingredientunit->ingredient_id == $ingredient->id) selected @endif>{{ $ingredient->name }}</option>
-                                @endforeach
-                            </select>
+                            <input
+                                type="number"
+                                name="value"
+                                value="{{ $recipeingredientunit->value }}"
+                                class="w-1/3 border-gray-300 hover:border-gray-500 px-2 py-1 rounded focus:border-blue-600 focus:border-2 border">
                         </div>
                     </li>
                     <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
@@ -73,14 +73,14 @@
                     </li>
                     <li class=" px-4 py-5 border-b border-gray-200 sm:flex sm:items-center">
                         <div class="text-xs leading-4 font-semibold uppercase tracking-wider text-gray-900 sm:w-3/12">
-                            Value
+                            Ingredient
                         </div>
                         <div class="mt-1 text-sm leading-5 sm:mt-0 sm:w-9/12">
-                            <input
-                                type="number"
-                                name="value"
-                                value="{{ $recipeingredientunit->value }}"
-                                class="w-1/3 border-gray-300 hover:border-gray-500 px-2 py-1 rounded focus:border-blue-600 focus:border-2 border">
+                            <select name="category_id" class="w-1/3 border-gray-300 hover:border-gray-500 px-2 py-1 rounded focus:border-blue-600 focus:border-2 border">
+                                @foreach ($ingredients as $ingredient)
+                                    <option value="{{ $ingredient->id }}" @if ($recipeingredientunit->ingredient_id == $ingredient->id) selected @endif>{{ $ingredient->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </li>
                 </ul>
