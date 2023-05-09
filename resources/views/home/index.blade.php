@@ -2,11 +2,12 @@
     <div class="w-full relative" style="background-image: url('{{ asset('storage/images/myimage.jpg') }}');
         height: 600px;
         background-position: center;
-        background-size: cover;">
-        <div class="w-full bg-gray-300/[.4] py-9 bottom-0 absolute">
+        background-size: cover;
+        background-attachment: fixed;">
+        <div class="w-full bg-gray-300/[.4] py-24 bottom-0 absolute">
             <div class="text-center max-w-2xl mx-auto">
-                <h1 class="text-6xl font-medium">DRAVINKA'S RECIPES</h1>
-                <h2 class="text-2xl font-medium">Truly Gourmet </h2>
+                <h1 class="text-6xl font-thin">DRAVINKA'S RECIPES</h1>
+                <h2 class="text-2xl font-thin">Truly Gourmet </h2>
             </div>
         </div>
     </div>

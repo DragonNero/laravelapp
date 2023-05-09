@@ -26,6 +26,7 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/', [HomeController::class, 'home'])->name('home');
     Route::get('/all', [HomeController::class, 'all'])->name('home.all');
     Route::get('/categoryrecipe/{name}', [HomeController::class, 'categoryrecipe'])->name('home.categoryrecipe');
+    Route::get('/recipe/{id}', [HomeController::class, 'recipe'])->name('home.recipe');
 });
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified', 'web']], function () {

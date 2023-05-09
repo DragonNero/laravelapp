@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\RecipeIngredientUnit;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Recipe extends Model
 {
@@ -27,8 +27,13 @@ class Recipe extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function recipeIngredientUnit(): BelongsToMany
+    public function recipeIngredientUnits(): HasMany
     {
-        return $this->belongsToMany(RecipeIngredientUnit::class);
+        return $this->HasMany(RecipeIngredientUnit::class);
+    }
+
+    public function steps(): HasMany
+    {
+        return $this->hasMany(Step::class)->orderBy('order');
     }
 }
