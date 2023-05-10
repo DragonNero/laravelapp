@@ -2,7 +2,7 @@
     <div class="w-full mt-7">
         <h1 class="w-full text-center text-5xl font-thin">
             {{ $category->name }}
-        </div>
+        </h1>
     </div>
 
     <div class="w-full mt-10">
