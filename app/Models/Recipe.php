@@ -36,4 +36,9 @@ class Recipe extends Model
     {
         return $this->hasMany(Step::class)->orderBy('order');
     }
+
+    public function getTotalTimeAttribute()
+    {
+        return $this->prep_time + $this->cook_time + $this->rest_time;
+    }
 }

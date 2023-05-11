@@ -1,8 +1,12 @@
 <x-client-layout>
+    @vite(['resources/js/recipe.js'])
     <div class="w-full px-40">
         <h1 class="text-center text-5xl">{{ $recipe->name }}</h1>
 
         <div class="w-full">
+            <div class="w-full text-center">
+                Total Time {{ $recipe->total_time }}
+            </div>
             <div class="w-3/12 float-left">
                 Prep Time {{ $recipe->prep_time }}
             </div>
@@ -13,7 +17,14 @@
                 Rest Time {{ $recipe->rest_time }}
             </div>
             <div class="w-3/12 float-left">
-                Serves {{ $recipe->servings }}
+                Serves <input
+                    id="servings"
+                    class="border-gray-300 hover:border-gray-500 rounded focus:border-blue-600 focus:border-2 border"
+                    type="number"
+                    min="1"
+                    value="{{ $recipe->servings }}"
+                    data-value="{{ $recipe->servings }}"
+                >
             </div>
         </div>
 
@@ -24,7 +35,7 @@
         <div class="w-4/12 float-left">
             <h1 class="text-center text-2xl">Ingredients</h1>
             @foreach ($recipe->recipeIngredientUnits as $ingredientUnit)
-                <div class="w-2/12 float-left">{{ $ingredientUnit->value }}</div>
+                <div class="w-2/12 float-left ingredientValue" data-value="{{ $ingredientUnit->value }}">{{ $ingredientUnit->value }}</div>
                 <div class="w-4/12 float-left">{{ $ingredientUnit->unit->name }}</div>
                 <div class="w-5/12 float-left">{{ $ingredientUnit->ingredient->name }}</div>
             @endforeach
