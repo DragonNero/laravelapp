@@ -3,11 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Models\Recipe;
+use LaravelViews\Facades\UI;
 use LaravelViews\Facades\Header;
 use LaravelViews\Views\TableView;
 use App\Actions\DeleteRecipeAction;
+use App\Filters\RecipesCategoryFilter;
 use LaravelViews\Actions\RedirectAction;
-use LaravelViews\Facades\UI;
 
 class RecipesTableView extends TableView
 {
@@ -63,6 +64,13 @@ class RecipesTableView extends TableView
             new RedirectAction('recipe.show', 'See recipe', 'eye'),
             new RedirectAction('recipe.edit', 'Edit recipe', 'edit-2'),
             new DeleteRecipeAction(),
+        ];
+    }
+
+    protected function filters()
+    {
+        return [
+            new RecipesCategoryFilter(),
         ];
     }
 }
