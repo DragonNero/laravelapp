@@ -6,6 +6,7 @@ use App\Models\Step;
 use LaravelViews\Facades\Header;
 use LaravelViews\Views\TableView;
 use App\Actions\DeleteStepAction;
+use App\Filters\RelationshipRecipeFilter;
 use LaravelViews\Actions\RedirectAction;
 
 class StepsTableView extends TableView
@@ -57,6 +58,13 @@ class StepsTableView extends TableView
             new RedirectAction('step.show', 'See step', 'eye'),
             new RedirectAction('step.edit', 'Edit step', 'edit-2'),
             new DeleteStepAction(),
+        ];
+    }
+
+    protected function filters()
+    {
+        return [
+            new RelationshipRecipeFilter(),
         ];
     }
 }

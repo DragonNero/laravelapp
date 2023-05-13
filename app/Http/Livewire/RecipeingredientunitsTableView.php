@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use LaravelViews\Facades\UI;
 use LaravelViews\Facades\Header;
 use App\Actions\DeleteUnitAction;
 use LaravelViews\Views\TableView;
 use App\Models\RecipeIngredientUnit;
+use App\Filters\RelationshipUnitFilter;
 use LaravelViews\Actions\RedirectAction;
-use LaravelViews\Facades\UI;
+use App\Filters\RelationshipRecipeFilter;
 use LaravelViews\Views\Traits\WithAlerts;
+use App\Filters\RelationshipIngredientFilter;
 
 class RecipeingredientunitsTableView extends TableView
 {
@@ -29,10 +32,10 @@ class RecipeingredientunitsTableView extends TableView
     public function headers(): array
     {
         return [
-            Header::title('recipe_id')->sortBy('recipe_id'),
+            Header::title('Recipe')->sortBy('recipe_id'),
             Header::title('value')->sortBy('value'),
-            Header::title('unit_id')->sortBy('unit_id'),
-            Header::title('ingredient_id')->sortBy('ingredient_id'),
+            Header::title('Unit')->sortBy('unit_id'),
+            Header::title('Ingredient')->sortBy('ingredient_id'),
         ];
     }
 
@@ -63,6 +66,15 @@ class RecipeingredientunitsTableView extends TableView
             new RedirectAction('recipeingredientunit.show', 'See unit', 'eye'),
             new RedirectAction('recipeingredientunit.edit', 'Edit recipeingredientunit', 'edit-2'),
             new DeleteUnitAction(),
+        ];
+    }
+
+    protected function filters()
+    {
+        return [
+            new RelationshipRecipeFilter(),
+            new RelationshipUnitFilter(),
+            new RelationshipIngredientFilter(),
         ];
     }
 }

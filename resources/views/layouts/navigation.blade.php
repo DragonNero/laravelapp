@@ -42,7 +42,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('step.index')" :active="request()->route()->getPrefix() === 'dashboard/step'">
+                    <x-nav-link :href="route('step.index')" :active="request()->route()->getPrefix() === 'dashboard/steps'">
                         {{ __('Steps') }}
                     </x-nav-link>
                 </div>
