@@ -7,7 +7,7 @@ use LaravelViews\Facades\UI;
 use LaravelViews\Facades\Header;
 use LaravelViews\Views\TableView;
 use App\Actions\DeleteRecipeAction;
-use App\Filters\RecipesCategoryFilter;
+use App\Filters\RelationshipCategoryFilter;
 use LaravelViews\Actions\RedirectAction;
 
 class RecipesTableView extends TableView
@@ -70,7 +70,7 @@ class RecipesTableView extends TableView
     protected function filters()
     {
         return [
-            new RecipesCategoryFilter(),
+            new RelationshipCategoryFilter(),
         ];
     }
 }

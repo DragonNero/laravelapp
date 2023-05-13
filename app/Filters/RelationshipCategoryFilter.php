@@ -2,11 +2,12 @@
 
 namespace App\Filters;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Builder;
 use LaravelViews\Filters\Filter;
 use App\Models\Recipe;
 
-class RecipesFilter extends Filter
+class RelationshipCategoryFilter extends Filter
 {
     /**
      * Modify the current query when the filter is used
@@ -18,9 +19,9 @@ class RecipesFilter extends Filter
 
     protected $model = Recipe::class;
 
-    public function apply(Builder $query, $value, $request): Builder
+    public function apply(Builder $query, $value): Builder
     {
-        return $query->where('active', $value);
+        return $query->where('category_id', $value);
     }
 
     /**
@@ -28,13 +29,15 @@ class RecipesFilter extends Filter
      *
      * @return Array associative array with the title and values
      */
-    public function options(): Array
+    public function options(): array
     {
-        return [
-            'Active' => 1,
-            'Disabled' => 0,
-        ];
+        $return = [];
+        $categories = Category::orderBy('order', 'asc')->get();
+
+        foreach ($categories as $category) {
+            $return[$category->name] = $category->id;
+        }
+
+        return $return;
     }
 }
-// category_id
-// $model->category->name,
