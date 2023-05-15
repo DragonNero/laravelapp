@@ -2271,9 +2271,192 @@ class StepsTableSeeder extends Seeder
                 'order' => 9,
                 'instruction' => 'Serve with boiled or fried rice and a sprinkling of sesame seeds.',
             ],
-
-
-
+            [
+                'id' => 376,
+                'recipe_id' => 38,
+                'order' => 1,
+                'instruction' => 'Blanch the mushrooms in 1/2 liter of salted water for 5 minutes. Drain them and keep their broth.',
+            ],
+            [
+                'id' => 377,
+                'recipe_id' => 38,
+                'order' => 2,
+                'instruction' => 'In a saucepan or large saucepan with a shallow bottom, brown the onion, garlic and parsley finely chopped in 2 tablespoons of sour cream.',
+            ],
+            [
+                'id' => 378,
+                'recipe_id' => 38,
+                'order' => 3,
+                'instruction' => 'Add the rice, mushrooms, the rest of the cream and the mascarpone and cover with the broth. Season. Cover, covered, over medium heat until the rice is tender and the sauce is creamy (at least 45 minutes).',
+            ],
+            [
+                'id' => 379,
+                'recipe_id' => 38,
+                'order' => 4,
+                'instruction' => 'Off the heat, stir in the grated Parmesan. Stir well.',
+            ],
+            [
+                'id' => 380,
+                'recipe_id' => 55,
+                'order' => 1,
+                'instruction' => 'Peel the potatoes, dice them, rinse them well and dry them in a clean cloth.',
+            ],
+            [
+                'id' => 381,
+                'recipe_id' => 55,
+                'order' => 2,
+                'instruction' => 'Heat the oil in a pan, melt the onions in it.',
+            ],
+            [
+                'id' => 382,
+                'recipe_id' => 55,
+                'order' => 3,
+                'instruction' => 'When the onions are melted, add the potatoes and brown them on all sides.',
+            ],
+            [
+                'id' => 383,
+                'recipe_id' => 55,
+                'order' => 4,
+                'instruction' => 'When they are golden, add the bacon and finish cooking.',
+            ],
+            [
+                'id' => 384,
+                'recipe_id' => 55,
+                'order' => 5,
+                'instruction' => 'On the other hand, scrape the crust of the reblochon and cut it in half (or in quarters).',
+            ],
+            [
+                'id' => 385,
+                'recipe_id' => 55,
+                'order' => 6,
+                'instruction' => 'Preheat the oven to 200 ° C (thermostat 6-7) and prepare a gratin dish by rubbing the bottom and edges with the peeled clove of garlic.',
+            ],
+            [
+                'id' => 386,
+                'recipe_id' => 55,
+                'order' => 7,
+                'instruction' => 'In the gratin dish, spread a layer of potatoes with bacon, place half of the reblochon on top, then the potatoes again. Finish with the rest of the reblochon (crust towards the potatoes).',
+            ],
+            [
+                'id' => 387,
+                'recipe_id' => 55,
+                'order' => 8,
+                'instruction' => 'Bake for about 20 minutes.',
+            ],
+            [
+                'id' => 388,
+                'recipe_id' => 21,
+                'order' => 1,
+                'instruction' => 'Pound the coarse salt with a pestle in a mortar, add the basil leaves and finely chopped garlic. Crush to mash them into a puree, then add the finely chopped pine nuts.',
+            ],
+            [
+                'id' => 389,
+                'recipe_id' => 21,
+                'order' => 2,
+                'instruction' => 'Crush again until you obtain a homogeneous puree; then mix the cheese by crushing, then the olive oil.',
+            ],
+            [
+                'id' => 390,
+                'recipe_id' => 21,
+                'order' => 3,
+                'instruction' => 'Subtle palates use 1 tablespoon of Parmesan (cow\'s milk) and 2 tablespoons of pecorino (sheep\'s milk). Pseto can be kept for several days in the fridge, as long as the oil covers the basil on the surface.',
+            ],
+            [
+                'id' => 391,
+                'recipe_id' => 20,
+                'order' => 1,
+                'instruction' => 'Preheat the oven to 210 ° C (thermostat 7).',
+            ],
+            [
+                'id' => 392,
+                'recipe_id' => 20,
+                'order' => 2,
+                'instruction' => 'Place a dough in a pie dish, prick it with a fork.',
+            ],
+            [
+                'id' => 393,
+                'recipe_id' => 20,
+                'order' => 3,
+                'instruction' => 'Mix all the ingredients (almond powder, sugar, egg, soft butter and bitter almond extract) in a bowl.',
+            ],
+            [
+                'id' => 394,
+                'recipe_id' => 20,
+                'order' => 4,
+                'instruction' => 'Spread the preparation on the dough, put the bean there (on one edge, to minimize the chances of falling on it when cutting the pancake!).',
+            ],
+            [
+                'id' => 395,
+                'recipe_id' => 20,
+                'order' => 5,
+                'instruction' => 'Close the galette with the second dough and weld the edges well.',
+            ],
+            [
+                'id' => 396,
+                'recipe_id' => 20,
+                'order' => 6,
+                'instruction' => 'Using a knife, decorate the dough by tracing designs and brown with egg yolk (diluted in a little water).',
+            ],
+            [
+                'id' => 397,
+                'recipe_id' => 20,
+                'order' => 7,
+                'instruction' => 'Poke small holes in the top to let air escape, otherwise it may swell and dry out.',
+            ],
+            [
+                'id' => 398,
+                'recipe_id' => 20,
+                'order' => 8,
+                'instruction' => 'Bake for about 30 minutes (watch the cooking from 25 minutes, but do not hesitate to leave up to 40 minutes if necessary).',
+            ],
+            [
+                'id' => 399,
+                'recipe_id' => 57,
+                'order' => 1,
+                'instruction' => 'Melt 3 tablespoons of butter in a saucepan.',
+            ],
+            [
+                'id' => 400,
+                'recipe_id' => 57,
+                'order' => 2,
+                'instruction' => 'Add a small chopped onion and the button mushrooms cut into very small pieces.',
+            ],
+            [
+                'id' => 401,
+                'recipe_id' => 57,
+                'order' => 3,
+                'instruction' => 'Season with salt and pepper, sprinkle with a tablespoon of chopped parsley.',
+            ],
+            [
+                'id' => 402,
+                'recipe_id' => 57,
+                'order' => 4,
+                'instruction' => 'Stir the mushrooms well in the hot butter. Cover and cook over low heat for 1/4 hour.',
+            ],
+            [
+                'id' => 403,
+                'recipe_id' => 57,
+                'order' => 5,
+                'instruction' => 'Ajouter alors 2 cuillères à soupe de farine en remuant sans cesse. Ajouter 1/4 litre de bouillon (ou d’eau) et 1/2 litre de lait.',
+            ],
+            [
+                'id' => 404,
+                'recipe_id' => 57,
+                'order' => 6,
+                'instruction' => 'Cook over low heat, stirring occasionally.',
+            ],
+            [
+                'id' => 405,
+                'recipe_id' => 57,
+                'order' => 7,
+                'instruction' => 'When the soup begins to boil, reduce the heat and cook, uncovered, for another 1/4 hour.',
+            ],
+            [
+                'id' => 406,
+                'recipe_id' => 57,
+                'order' => 8,
+                'instruction' => 'A few minutes before serving, add the juice of one lemon then 2 tablespoons of crème fraîche.',
+            ],
         ];
 
         foreach ($steps as $step) {
@@ -2281,66 +2464,3 @@ class StepsTableSeeder extends Seeder
         }
     }
 }
-
-
-$steps = [
-    [
-        'id' => 1,
-        'recipe_id' => 17,
-        'order' => 1,
-        'instruction' => 'to',
-    ],
-    [
-        'id' => 2,
-        'recipe_id' => 4,
-        'order' => 2,
-        'instruction' => 'to',
-    ],
-    [
-        'id' => 3,
-        'recipe_id' => 4,
-        'order' => 3,
-        'instruction' => 'to',
-    ],
-    [
-        'id' => 4,
-        'recipe_id' => 4,
-        'order' => 4,
-        'instruction' => 'To',
-    ],
-    [
-        'id' => 5,
-        'recipe_id' => 4,
-        'order' => 5,
-        'instruction' => 'To',
-    ],
-    [
-        'id' => 6,
-        'recipe_id' => 4,
-        'order' => 6,
-        'instruction' => 'To',
-    ],
-    [
-        'id' => 7,
-        'recipe_id' => 4,
-        'order' => 7,
-        'instruction' => 'To',
-    ],
-    [
-        'id' => 8,
-        'recipe_id' => 4,
-        'order' => 8,
-        'instruction' => 'To',
-    ],
-    [
-        'id' => 9,
-        'recipe_id' => 1,
-        'order' => 9,
-        'instruction' => 'To',
-    ],
-    [
-        'id' => 10,
-        'recipe_id' => 1,
-        'order' => 10,
-        'instruction' => 'To',
-    ],
