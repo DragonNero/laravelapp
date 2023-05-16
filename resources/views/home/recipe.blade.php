@@ -36,7 +36,7 @@
             <h1 class="text-center text-2xl">Ingredients</h1>
             @foreach ($recipe->recipeIngredientUnits as $ingredientUnit)
                 <div class="w-2/12 float-left ingredientValue" data-value="{{ $ingredientUnit->value }}">{{ $ingredientUnit->value }}</div>
-                <div class="w-4/12 float-left">{{ $ingredientUnit->unit->name }}</div>
+                <div class="w-4/12 float-left">{{ $ingredientUnit->unit->name ?? '' }}</div>
                 <div class="w-5/12 float-left">{{ $ingredientUnit->ingredient->name }}</div>
             @endforeach
         </div>

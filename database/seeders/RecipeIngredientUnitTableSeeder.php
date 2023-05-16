@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\RecipeIngredientUnit;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class RecipeIngredientUnitTableSeeder extends Seeder
 {
@@ -12,53 +13,65 @@ class RecipeIngredientUnitTableSeeder extends Seeder
      */
     public function run(): void
     {
+        Schema::disableForeignKeyConstraints();
+
+        RecipeIngredientUnit::truncate();
+
         $recipeingredientunits = [
             [
-                'id' => '1',
-                'recipe_id' => '1',
-                'ingredient_id' => '1',
-                'unit_id' => '1',
-                'value' => '100',
+                'recipe_id' => 1,
+                'ingredient_id' => 139,
+                'unit_id' => 3,
+                'value' => 2.5,
             ],
             [
-                'id' => '2',
-                'recipe_id' => '2',
-                'ingredient_id' => '3',
-                'unit_id' => '3',
-                'value' => '200',
+                'recipe_id' => 1,
+                'ingredient_id' => 166,
+                'unit_id' => 3,
+                'value' => 2.5,
             ],
             [
-                'id' => '3',
-                'recipe_id' => '2',
-                'ingredient_id' => '3',
-                'unit_id' => '3',
-                'value' => '300',
+                'recipe_id' => 1,
+                'ingredient_id' => 13,
+                'unit_id' => 3,
+                'value' => 5,
             ],
             [
-                'id' => '4',
-                'recipe_id' => '1',
-                'ingredient_id' => '1',
-                'unit_id' => '1',
-                'value' => '400',
+                'recipe_id' => 1,
+                'ingredient_id' => 67,
+                'unit_id' => 3,
+                'value' => 355,
             ],
             [
-                'id' => '5',
-                'recipe_id' => '3',
-                'ingredient_id' => '2',
-                'unit_id' => '2',
-                'value' => '500',
+                'recipe_id' => 1,
+                'ingredient_id' => 14,
+                'unit_id' => null,
+                'value' => 4,
             ],
             [
-                'id' => '6',
-                'recipe_id' => '1',
-                'ingredient_id' => '1',
-                'unit_id' => '1',
-                'value' => '600',
+                'recipe_id' => 1,
+                'ingredient_id' => 62,
+                'unit_id' => null,
+                'value' => 2,
+            ],
+            [
+                'recipe_id' => 1,
+                'ingredient_id' => 152,
+                'unit_id' => 3,
+                'value' => 240,
+            ],
+            [
+                'recipe_id' => 1,
+                'ingredient_id' => 30,
+                'unit_id' => 3,
+                'value' => 120,
             ],
         ];
 
         foreach ($recipeingredientunits as $recipeingredientunit) {
             RecipeIngredientUnit::create($recipeingredientunit);
         }
+
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Step;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class StepsTableSeeder extends Seeder
 {
@@ -12,6 +13,10 @@ class StepsTableSeeder extends Seeder
      */
     public function run(): void
     {
+        Schema::disableForeignKeyConstraints();
+
+        Step::truncate();
+
         $steps = [
             [
                 'id' => 1,
@@ -122,7 +127,7 @@ class StepsTableSeeder extends Seeder
             ],
             [
                 'id' => 19,
-                'recipe_id' => 35,
+                'recipe_id' => 26,
                 'order' => 1,
                 'instruction' => 'Wash the crayfish thoroughly under cold water',
             ],
@@ -1040,19 +1045,19 @@ class StepsTableSeeder extends Seeder
             ],
             [
                 'id' => 172,
-                'recipe_id' => 4,
+                'recipe_id' => 31,
                 'order' => 2,
                 'instruction' => 'Add the stock, carrot and potatoes. Bring to a boil and cook for about 10 minutes over medium heat. At this point the potatoes should be almost ready.',
             ],
             [
                 'id' => 173,
-                'recipe_id' => 4,
+                'recipe_id' => 31,
                 'order' => 3,
                 'instruction' => 'Add the salmon chunks and the cream, and cook for about 5-7 minutes more, until it starts to boil.',
             ],
             [
                 'id' => 174,
-                'recipe_id' => 4,
+                'recipe_id' => 31,
                 'order' => 4,
                 'instruction' => 'Turn off the heat and add the dill, salt and pepper. Close the lid and wait for another 10 minutes.',
             ],
@@ -1318,25 +1323,25 @@ class StepsTableSeeder extends Seeder
             [
                 'id' => 218,
                 'recipe_id' => 56,
-                'order' => 1,
+                'order' => 11,
                 'instruction' => 'Cover with a layer of mascarpone cream (about half) then repeat by alternating layer biscuit and cream, ending with the latter.',
             ],
             [
                 'id' => 219,
                 'recipe_id' => 56,
-                'order' => 2,
+                'order' => 12,
                 'instruction' => 'Cover with food wrap then refrigerate for 24 hours',
             ],
             [
                 'id' => 220,
                 'recipe_id' => 56,
-                'order' => 3,
+                'order' => 13,
                 'instruction' => 'The tiramisu is even better 2 days later!',
             ],
             [
                 'id' => 221,
                 'recipe_id' => 56,
-                'order' => 4,
+                'order' => 14,
                 'instruction' => 'Just before serving, sprinkle with cocoa',
             ],
             [
@@ -2462,5 +2467,7 @@ class StepsTableSeeder extends Seeder
         foreach ($steps as $step) {
             Step::create($step);
         }
+
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -49,7 +49,8 @@ class RecipeingredientunitsTableView extends TableView
         return [
             $model->recipe->name,
             UI::editable($model, 'value'),
-            $model->unit->name,
+            ($model->unit === null ? '' : $model->unit->name),
+            //($model->unit->name ?? ''),
             $model->ingredient->name,
         ];
     }

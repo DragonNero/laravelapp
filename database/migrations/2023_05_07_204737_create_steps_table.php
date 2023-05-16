@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('recipe_id')->index();
-            $table->integer('order')->unique();
+            $table->integer('order');
             $table->string('instruction');
+
+            $table->unique(['recipe_id', 'order']);
 
             $table->timestamps();
         });

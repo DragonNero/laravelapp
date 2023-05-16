@@ -33,7 +33,7 @@ class RecipeingredientunitDetailView extends DetailView
         return [
             'Recipe' => $model->recipe->name,
             'Value' => $model->value,
-            'Unit' => $model->unit->name,
+            'Unit' => $model->unit->name ?? '',
             'Ingredient' => $model->ingredient->name,
         ];
     }
