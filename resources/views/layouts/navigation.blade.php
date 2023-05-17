@@ -101,6 +101,36 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('category.index')" :active="request()->route()->getPrefix() === 'dashboard/categories'">
+                {{ __('Categories') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('recipe.index')" :active="request()->route()->getPrefix() === 'dashboard/recipes'">
+                {{ __('Recipes') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('ingredient.index')" :active="request()->route()->getPrefix() === 'dashboard/ingredients'">
+                {{ __('Ingredients') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('unit.index')" :active="request()->route()->getPrefix() === 'dashboard/units'">
+                {{ __('Units') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('recipeingredientunit.index')" :active="request()->route()->getPrefix() === 'dashboard/recipeingredientunit'">
+                {{ __('Recipe’s Ingredients') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('step.index')" :active="request()->route()->getPrefix() === 'dashboard/steps'">
+                {{ __('Steps') }}
+            </x-responsive-nav-link>
+        </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
