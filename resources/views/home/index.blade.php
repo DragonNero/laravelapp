@@ -1,5 +1,5 @@
 <x-client-layout>
-    <div class="w-full relative" style="background-image: url('{{ asset('storage/images/myimage.jpg') }}');
+    <div class="w-full relative" style="background-image: url('{{ asset('storage/images/background_image.jpg') }}');
         height: 600px;
         background-position: center;
         background-size: cover;

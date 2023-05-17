@@ -75,7 +75,9 @@ class CategoryController extends Controller
 
         if ($request->hasFile('image_path')) {
             // delete image
-            Storage::disk('images')->delete($category->image_path);
+            if ($category->image_path) {
+                Storage::disk('images')->delete($category->image_path);
+            }
 
             $filePath = $this->storeImage($request);
             $validated['image_path'] = $filePath;

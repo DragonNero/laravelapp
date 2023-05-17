@@ -79,7 +79,9 @@ class RecipeController extends Controller
 
         if ($request->hasFile('image_path')) {
             // delete image
-            Storage::disk('images')->delete($recipe->image_path);
+            if ($recipe->image_path) {
+                Storage::disk('images')->delete($recipe->image_path);
+            }
 
             $filePath = $this->storeImage($request);
             $validated['image_path'] = $filePath;

@@ -21,37 +21,37 @@ class CategoriesTableSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => 'APPETIZERS',
-                'image_path' => '64452c38e36fa-.jpg',
+                'image_path' => 'APPETIZERS.jpg',
                 'order' => 1,
             ],
             [
                 'id' => 2,
                 'name' => 'MAIN DISHES',
-                'image_path' => '64452d08c8315-.jpg',
+                'image_path' => 'MAIN_DISHES.jpg',
                 'order' => 2,
             ],
             [
                 'id' => 3,
                 'name' => 'SIDE DISHES',
-                'image_path' => '64452d14129a1-.jpg',
+                'image_path' => 'SIDE_DISHES.jpg',
                 'order' => 3,
             ],
             [
                 'id' => 4,
                 'name' => 'DESSERTS',
-                'image_path' => '64452d1d83a32-.jpg',
+                'image_path' => 'DESSERTS.jpg',
                 'order' => 4,
             ],
             [
                 'id' => 5,
                 'name' => 'COCKTAILS',
-                'image_path' => '64452d2c47704-.jpg',
+                'image_path' => 'COCKTAILS.jpg',
                 'order' => 5,
             ],
             [
                 'id' => 6,
                 'name' => 'OTHERS',
-                'image_path' => '64452d363215f-.jpg',
+                'image_path' => 'OTHERS.jpg',
                 'order' => 6,
             ],
         ];
