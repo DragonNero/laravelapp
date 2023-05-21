@@ -2910,6 +2910,48 @@ class RecipeIngredientUnitTableSeeder extends Seeder
                 'unit_id' => 1,
                 'value' => 1000,
             ],
+            [
+                'recipe_id' => 61,
+                'ingredient_id' => 114,
+                'unit_id' => 5,
+                'value' => 1,
+            ],
+            [
+                'recipe_id' => 61,
+                'ingredient_id' => 30,
+                'unit_id' => 1,
+                'value' => 50,
+            ],
+            [
+                'recipe_id' => 61,
+                'ingredient_id' => 179,
+                'unit_id' => 12,
+                'value' => 1,
+            ],
+            [
+                'recipe_id' => 61,
+                'ingredient_id' => 136,
+                'unit_id' => 1,
+                'value' => 200,
+            ],
+            [
+                'recipe_id' => 61,
+                'ingredient_id' => 115,
+                'unit_id' => null,
+                'value' => 1,
+            ],
+            [
+                'recipe_id' => 61,
+                'ingredient_id' => 180,
+                'unit_id' => 1,
+                'value' => 200,
+            ],
+            [
+                'recipe_id' => 61,
+                'ingredient_id' => 175,
+                'unit_id' => 15,
+                'value' => 0.5,
+            ],
         ];
 
         foreach ($recipeingredientunits as $recipeingredientunit) {
@@ -2920,61 +2962,5 @@ class RecipeIngredientUnitTableSeeder extends Seeder
     }
 }
 
-// 'id' => 152,
-// 'name' => 'sugar',
-
-// 'id' => 67,
-// 'name' => 'flour',
-
-// 'id' => 102,
-// 'name' => 'milk',
-
-// 'id' => 62,
-// 'name' => 'egg',
-
-// 'id' => 63,
-// 'name' => 'egg yolk',
-
-// 'id' => 30,
-//  'name' => 'butter',
-
-//  'id' => 114,
-//  'name' => 'olive oil',
-
-//  'id' => 87,
-// 'name' => 'kosher salt',
-
-// 'id' => 139,
-// 'name' => 'salt',
-
-// 'id' => 140,
-// 'name' => 'salt and pepper',
-
-// 'id' => 53,
-// 'name' => 'cracked black pepper',
-
-// 'id' => 34,
-// 'name' => 'carrot',
-
-// 'id' => 143,
-// 'name' => 'shallot',
-
 // 'id' => 115,
 //  'name' => 'onion',
-
-//  'id' => 70,
-//  'name' => 'garlic clove',
-
-//  'id' => 71,
-//  'name' => 'garlic powder',
-
-//  'id' => 104,
-//  'name' => 'minced garlic',
-
-
-//  'id' => 93,
-//  'name' => 'lime',
-
-//  'id' => 160,
-//  'name' => 'tomato',
-// ],

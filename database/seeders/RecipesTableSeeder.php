@@ -230,7 +230,7 @@ class RecipesTableSeeder extends Seeder
             ],
             [
                 'id' => 22,
-                'category_id' => 4,
+                'category_id' => 3,
                 'name' => 'Gratin Dauphinois',
                 'image_path' => 'Gratin_Dauphinois.jpg',
                 'prep_time' => 10,
@@ -420,7 +420,7 @@ class RecipesTableSeeder extends Seeder
             ],
             [
                 'id' => 41,
-                'category_id' => 5,
+                'category_id' => 4,
                 'name' => 'Perle de coco',
                 'image_path' => 'Perle_de_coco.jpg',
                 'prep_time' => 180,
@@ -460,7 +460,7 @@ class RecipesTableSeeder extends Seeder
             ],
             [
                 'id' => 45,
-                'category_id' => 5,
+                'category_id' => 4,
                 'name' => 'Pâte à Crêpes',
                 'image_path' => 'Pte__Crpes.jpg',
                 'prep_time' => 15,
@@ -617,6 +617,16 @@ class RecipesTableSeeder extends Seeder
                 'cook_time' => 25,
                 'rest_time' => 0,
                 'servings' => 6,
+            ],
+            [
+                'id' => 61,
+                'category_id' => 3,
+                'name' => 'Gorgonzola Risotto',
+                'image_path' => 'Gorgonzola_Risotto.jpg',
+                'prep_time' => 10,
+                'cook_time' => 35,
+                'rest_time' => 0,
+                'servings' => 4,
             ],
         ];
 

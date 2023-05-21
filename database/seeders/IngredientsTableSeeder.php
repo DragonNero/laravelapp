@@ -730,6 +730,14 @@ class IngredientsTableSeeder extends Seeder
                 'id' => 178,
                 'name' => 'zucchini',
             ],
+            [
+                'id' => 179,
+                'name' => 'veggie stock',
+            ],
+            [
+                'id' => 180,
+                'name' => 'gorgonzola',
+            ],
         ];
 
         foreach ($ingredients as $ingredient) {

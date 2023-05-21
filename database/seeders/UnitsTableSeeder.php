@@ -74,6 +74,10 @@ class UnitsTableSeeder extends Seeder
                 'id' => 14,
                 'name' => 'package',
             ],
+            [
+                'id' => 15,
+                'name' => 'L',
+            ],
         ];
 
         foreach ($units as $unit) {

@@ -2462,6 +2462,42 @@ class StepsTableSeeder extends Seeder
                 'order' => 8,
                 'instruction' => 'A few minutes before serving, add the juice of one lemon then 2 tablespoons of crème fraîche.',
             ],
+            [
+                'id' => 407,
+                'recipe_id' => 61,
+                'order' => 1,
+                'instruction' => 'Thinly slice the onion and make it sweat in the oil and half a cup of water in a non-stick pot',
+            ],
+            [
+                'id' => 408,
+                'recipe_id' => 61,
+                'order' => 2,
+                'instruction' => 'Add the rice and mix for 2 minutes',
+            ],
+            [
+                'id' => 409,
+                'recipe_id' => 61,
+                'order' => 3,
+                'instruction' => 'Deglaze with the white wine and let it reduce',
+            ],
+            [
+                'id' => 410,
+                'recipe_id' => 61,
+                'order' => 4,
+                'instruction' => 'Add little by little the stock for a quarter of an hour',
+            ],
+            [
+                'id' => 411,
+                'recipe_id' => 61,
+                'order' => 5,
+                'instruction' => 'Add the gorgonzola and the butter. Mix and serve immediately',
+            ],
+            [
+                'id' => 412,
+                'recipe_id' => 61,
+                'order' => 6,
+                'instruction' => 'You can also add some parmiggiano',
+            ],
         ];
 
         foreach ($steps as $step) {
